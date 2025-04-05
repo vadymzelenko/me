@@ -1,5 +1,5 @@
 const body = document.body
-const btnTheme = document.getElementById('btn-theme') // 🔥 надійно
+const btnTheme = document.getElementById('btn-theme')
 const btnHamburger = document.querySelector('.fa-bars')
 
 const addThemeClass = (bodyClass, btnClass) => {
