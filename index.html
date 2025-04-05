@@ -1,528 +1,178 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portfolio" />
+    <script src="https://kit.fontawesome.com/fa62c117c7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Vadym Zelenko</title>
+  </head>
+  <body class="light" id="top">
+    <header class="header center">
+      <h3>
+        <a href="https://rjshkhr.github.io/cleanfolio-minimal" class="link">VZ.</a>
+      </h3>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Resume</title>
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/aos.css" rel="stylesheet">
-    <!-- main style -->
-    <link href="css/style.css" rel="stylesheet">
+      <nav class="nav center">
+        <ul class="nav__list center">
+          <li class="nav__list-item">
+            <a class="link link--nav" href="#projects" >Projects</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="#skills">Skills</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="#contact">Contact</a>
+          </li>
+        </ul>
 
-</head>
+        <button type="button" aria-label="toggle theme" class="btn btn--icon">
+          <i aria-hidden="true" id="btn-theme" class="fas fa-moon"></i>
+        </button>
 
-<body>
-
-    <!-- Preloader -->
-    <div id="preloader">
-        <div id="status">
-
-            <div class="preloader" aria-busy="true" aria-label="Loading, please wait." role="progressbar">
-            </div>
-
-        </div>
-    </div>
-    <!-- ./Preloader -->
-    
-    <!-- header -->
-    <header class="navbar-fixed-top">
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">experience</a></li>
-                <li><a href="#projects">projects</a></li>
-                <li><a href="#contact">contact</a></li>
-                <li><a href="https://blog.vzbb.site/">blog</a></li>
-            </ul>
-        </nav>
+        <button type="button" aria-label="toggle navigation" class="btn btn--icon nav__hamburger">
+          <i aria-hidden="true" class="fas fa-bars"></i>
+        </button>
+      </nav>
     </header>
-    <!-- ./header -->
-    
-    <!-- home -->
-    <div class="section" id="home" data-stellar-background-ratio="0.5">
-        <div class="container">
-            <div class="disply-table">
-                <div class="table-cell" data-aos="fade-up" data-aos-delay="0">
-                    <h4>Vadym Zelenko</h4>
-                    <h1>Front &<br /> BackEnd Developer</h1> </div>
-            </div>
+
+    <main>
+      <!-- About -->
+      <div class="about center">
+        <h1>Hi, I am <span class="about__name">Vadym Zelenko.</span></h1>
+        <h2 class="about__role">A Front Back end Developer.</h2>
+        <p class="about__desc">
+          ------------------------------------------
+        </p>
+
+        <div class="about__contact center">
+          <a href="https://example.com">
+            <span class="btn btn--outline">Resume</span>
+          </a>
+
+          <a href="https://github.com/rjshkhr" aria-label="github" class="link link--icon">
+            <i aria-hidden="true" class="fab fa-github"></i>
+          </a>
+
+          <a href="https://linkedin.com/in/rjshkhr" aria-label="linkedin" class="link link--icon">
+            <i aria-hidden="true" class="fab fa-linkedin"></i>
+          </a>
         </div>
-    </div>
-    <!-- ./home -->
-    
-    <!-- about -->
-    <div class="section" id="about">
-        <div class="container">
-            <div class="col-md-6" data-aos="fade-up">
-                <h4>01</h4>
-                <h1 class="size-50">Know <br /> About me</h1>
-                <div class="h-50"></div>
-                <p>I am a Junior Python Developer passionate about creating efficient and scalable solutions. I specialize in developing backend applications and automating processes using Python. My goal is to write code that not only works but also brings value to the business, laying the foundation for future success.</p>
-                <p>I believe in the importance of clean and understandable code, and I strive for continuous learning and the application of cutting-edge technologies in my projects. I have already worked on various tasks, including building chat applications, online compilers, and task management platforms.</p>
-                <div class="h-50"></div> <img src="img/Signature.svg" width="230" alt="" />
-                <div class="h-50"></div>
-            </div>
-            <div class="col-md-6 about-img-div">
-                <div class="about-border" data-aos="fade-up" data-aos-delay=".5"></div>
-                <img src="img/about-img.jpg" width="400" class="img-responsive" alt="" align="right" data-aos="fade-right" data-aos-delay="0" />
-            </div>
+      </div>
+
+      <!-- Projects -->
+      <section id="projects" class="section projects">
+        <h2 class="section__title">Projects</h2>
+
+        <div class="projects__grid">
+          <div class="project">
+            <h3>Project 1</h3>
+            <p class="project__description">
+              Ipsum accusamus ea excepturi aliquid eligendi amet. Explicabo
+              sapiente debitis labore sed ipsam Mollitia repellat illum quod
+              unde beatae Quis
+            </p>
+            <ul class="project__stack">
+              <li class="project__stack-item">SASS</li>
+              <li class="project__stack-item">TypeScript</li>
+              <li class="project__stack-item">React</li>
+            </ul>
+
+            <a href="https://github.com" aria-label="source code" class="link link--icon">
+              <i aria-hidden="true" class="fab fa-github"></i>
+            </a>
+            <a href="https://example.com" aria-label="live preview" class="link link--icon">
+              <i aria-hidden="true" class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <div class="project">
+            <h3>Project 2</h3>
+            <p class="project__description">
+              Ipsum accusamus ea excepturi aliquid eligendi amet. Explicabo
+              sapiente debitis labore sed ipsam Mollitia repellat illum quod
+              unde beatae Quis
+            </p>
+            <ul class="project__stack">
+              <li class="project__stack-item">SASS</li>
+              <li class="project__stack-item">TypeScript</li>
+              <li class="project__stack-item">React</li>
+            </ul>
+
+            <a href="https://github.com" aria-label="source code" class="link link--icon">
+              <i aria-hidden="true" class="fab fa-github"></i>
+            </a>
+            <a href="https://example.com" aria-label="live preview" class="link link--icon">
+              <i aria-hidden="true" class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <div class="project">
+            <h3>Project 3</h3>
+            <p class="project__description">
+              Ipsum accusamus ea excepturi aliquid eligendi amet. Explicabo
+              sapiente debitis labore sed ipsam Mollitia repellat illum quod
+              unde beatae Quis
+            </p>
+            <ul class="project__stack">
+              <li class="project__stack-item">SASS</li>
+              <li class="project__stack-item">TypeScript</li>
+              <li class="project__stack-item">React</li>
+            </ul>
+
+            <a href="https://github.com" aria-label="source code" class="link link--icon">
+              <i aria-hidden="true" class="fab fa-github"></i>
+            </a>
+            <a href="https://example.com" aria-label="live preview" class="link link--icon">
+              <i aria-hidden="true" class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
         </div>
-    </div>
-    <!-- ./about -->
-    
-    <!-- experience  -->
-    <div class="section" id="experience">
-        <div class="container">
-            <div class="col-md-12">
-                <h4>02</h4>
-                <h1 class="size-50">My <br /> Experience</h1>
-                <div class="h-50"></div>
-            </div>
-            <div class="col-md-12">
-                <ul class="timeline">
-                    <li class="timeline-event" data-aos="fade-up">
-                        <label class="timeline-event-icon"></label>
-                        <div class="timeline-event-copy">
-                            <p class="timeline-event-thumbnail">December 2023 - Present</p>
-                            <h3>Freelancer</h3>
-                            <h4>Full-Stack Web Developer</h4>
-                            <p>Development and Improvement of Frontend and Backend in Python. Creation of Bots and Parsing Programs. Database Integration.</p>
-                        </div>
-                    </li>
-                    <li class="timeline-event" data-aos="fade-up" data-aos-delay=".2">
-                        <label class="timeline-event-icon"></label>
-                        <div class="timeline-event-copy">
-                            <p class="timeline-event-thumbnail">January 2023 - November 2023</p>
-                            <h3>Freelancer</h3>
-                            <h4>FrontEnd Developer</h4>
-                            <p>Development and Improvement of Frontend.</p>
-                        </div>
-                    </li>
-                    <li class="timeline-event" data-aos="fade-up" data-aos-delay=".4">
-                        <label class="timeline-event-icon"></label>
-                        <div class="timeline-event-copy">
-                            <p class="timeline-event-thumbnail">September 2021 - June 2025</p>
-                            <h3>Student</h3>
-                            <h4>National University Radio Electronic</h4>
-                            <p><strong>Automation Engineer</strong>
-                                <br>Automation and Computer Technologies. Software Development.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- ./experience -->
-    
-    <!-- projects -->
-    <div class="section" id="projects">
-        <div class="container">
-            <div class="col-md-12">
-                <h4>03</h4>
-                <h1 class="size-50">My <br /> Projects</h1> 
-            </div>
-            <!-- main container -->
-            <div class="main-container portfolio-inner clearfix">
-                <!-- portfolio div -->
-                <div class="portfolio-div">
-                    <div class="portfolio">
-                        <!-- portfolio_filter -->
-                        <div class="categories-grid wow fadeInLeft">
-                            <nav class="categories">
-                                <ul class="portfolio_filter">
-                                    <li><a href="" class="active" data-filter="*">All</a></li>
-                                    <li><a href="" data-filter=".flask_django">Flask/Django</a></li>
-                                    <li><a href="" data-filter=".html_css">HTML/CSS</a></li>
-                                    <li><a href="" data-filter=".sql">SQL</a></li>
-                                    <li><a href="" data-filter=".python">Python</a></li>
-                                    <li><a href="" data-filter=".data_science">Data Science</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <!-- portfolio_filter -->
-                        
-                        <!-- portfolio_container -->
-                        <div class="no-padding portfolio_container clearfix" data-aos="fade-up">
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 flask_django html_css python ">
-                                <a id="demo01" href="#animatedModal1" class="portfolio_item"> <img src="img/portfolio/01.jpg" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Online Compiler</span> <em>Flask / AJAX / JS / HTML</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
+      </section>
 
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 flask_django data_science">
-                                <a id="demo02" href="#animatedModal2" class="portfolio_item"> <img src="img/portfolio/02.jpg" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Face Recognition</span> <em>Flask / OpenCV</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 data_science">
-                                <a id="demo03" href="#animatedModal3" class="portfolio_item"> <img src="img/portfolio/03.jpg" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Emotion Analyzer</span> <em>Flask / NLTK</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 sql flask_django ">
-                                <a id="demo04" href="#animatedModal4" class="portfolio_item"> <img src="img/portfolio/04.jpg" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Employee Hierarchy Tree</span> <em>Django / PostgreSQL / JS</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 html_css">
-                                <a id="demo05" href="#animatedModal5" class="portfolio_item"> <img src="img/portfolio/05.jpg" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Diagonal Landing</span> <em>HTML / CSS / JS</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 html_css">
-                                <a id="demo06" href="#animatedModal6" class="portfolio_item"> <img src="img/portfolio/06.jpg" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Landing Portfolio</span> <em>HTML / CSS / JS</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 html_css">
-                                <a id="demo07" href="#animatedModal7" class="portfolio_item"> <img src="img/portfolio/07.jpg" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Landing For A Mobile App</span> <em>HTML / CSS / JS</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 html_css">
-                                <a id="demo08" href="#animatedModal8" class="portfolio_item"> <img src="img/portfolio/08.jpg" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Landing For Guitar Lessons</span> <em>HTML / CSS / JS</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                            
-                            <!-- single work -->
-                            <div class="col-md-4 col-sm-6 python sql data_science">
-                                <a id="demo09" href="#animatedModal9" class="portfolio_item"> <img src="img/portfolio/09.jpg" alt="image" class="img-responsive" />
-                                    <div class="portfolio_item_hover">
-                                        <div class="portfolio-border clearfix">
-                                            <div class="item_info"> <span>Search Engine</span> <em>Asynchronous / SQL / TF-IDF vectorization</em> </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- end single work -->
-                        </div>
-                        <!-- end portfolio_container -->
-                    </div>
-                    <!-- portfolio -->
-                </div>
-                <!-- end portfolio div -->
-            </div>
-            <!-- end main container -->
-        </div>
-    </div>
-    <!-- ./projects -->
-    
-    <!-- contact -->
-    <div class="section" id="contact">
-        <div class="container">
-            <div class="col-md-12">
-                <h4>04</h4>
-                <h1 class="size-50">Contact  Me</h1>
-                <div class="h-50"></div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up">
+      <!-- Skills -->
+      <section class="section skills" id="skills">
+        <h2 class="section__title">Skills</h2>
+        <ul class="skills__list">
+          <li class="skills__list-item btn btn--plain">HTML</li>
+          <li class="skills__list-item btn btn--plain">CSS</li>
+          <li class="skills__list-item btn btn--plain">SCSS</li>
+          <li class="skills__list-item btn btn--plain">JavaScript</li>
+          <li class="skills__list-item btn btn--plain">TypeScript</li>
+          <li class="skills__list-item btn btn--plain">React</li>
+          <li class="skills__list-item btn btn--plain">Redux</li>
+          <li class="skills__list-item btn btn--plain">Git</li>
+          <li class="skills__list-item btn btn--plain">Material UI</li>
+          <li class="skills__list-item btn btn--plain">Jest</li>
+          <li class="skills__list-item btn btn--plain">Enzyme</li>
+          <li class="skills__list-item btn btn--plain">CI/CD</li>
+        </ul>
+      </section>
 
-                <h3>Phone Number</h3>
-                <p>+48 789 901 953</p>
-                <h3>Telegram</h3>
-                <p>+48 789 901 953</p>
-                <h3>Email</h3>
-                <p>zelenko009@gmail.com </p>
+      <!-- Contact -->
+      <section class="section contact center" id="contact">
+        <h2 class="section__title">Contact</h2>
+        <a href="mailto:zelenko009@gmail.com">
+          <span class="btn btn--outline">Email me</span>
+        </a>
+      </section>
+    </main>
 
-                <h3>Social Network</h3>
+    <footer class="footer">
+      <a href="https://github.com/01cheese" class="link footer__link">
+        Created By VZ
+      </a>
+    </footer>
 
-                <ul class="social">
-                    <li><a href="https://x.com/01chesee"><i class="ion-social-twitter"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/vadym-zelenko-33298a26b/"><i class="ion-social-linkedin"></i></a></li>
-                    <li><a href="https://github.com/01cheese"><i class="ion-social-github"></i></a></li>
-                    <li><a href="https://www.reddit.com/user/Delicious_Demand3332/"><i class="ion-social-reddit"></i></a></li>
-                </ul>
-                <div class="clearfix"></div>
-                <div class="h-50"></div>
-            </div>
-            <div class="col-md-6 about-img-div">
-
-                <img src="img/footer.jpg"  class="img-responsive" alt="" align="right" data-aos="fade-right" data-aos-delay="0" />
-            </div>
-            <!--
-            <div class="col-md-8" data-aos="fade-up">
-                <form class="contact-bg" id="contact-form" name="contact" method="post" novalidate="novalidate">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" />
-                    <input type="email" name="email" class="form-control" placeholder="Your E-mail" />
-                    <input type="text" name="phone" class="form-control" placeholder="Phone Number" />
-                    <textarea name="message" class="form-control" placeholder="Your Message" style="height:120px"></textarea>
-                    <button id="submit" type="submit" name="submit" class="btn btn-glance">Send</button>
-                    <div id="success">
-                        <p class="green textcenter"> Your message was sent successfully! I will be in touch as soon as I can. </p>
-                    </div>
-                    <div id="error">
-                        <p> Something went wrong, try refreshing and submitting the form again. </p>
-                    </div>
-                </form>
-            </div>
-            -->
-        </div>
-    </div>
-    <!-- ./contact -->
-
-    <!--DEMO01-->
-    <div id="animatedModal1" class="popup-modal1">
-        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-        <div id="btn-close-modal" class="close-animatedModal1 close-popup-modal"> <i class="ion-close-round"></i> </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2>Хоп хей халалей<br /> жужа пужа ружа гужа</h2>
-                        <div class="h-50"></div>
-                        <p>а чуча карачуча муча гуча луча, луча геча меча леча кеча</p>
-                        <br /> <img src="img/portfolio/cat.jpg" alt="" class="img-responsive" />
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="scroll-container">
+      <div class="scroll-top">
+        <a aria-label="Scroll up" href="#top">
+          <i aria-hidden="true" class="fas fa-arrow-up"></i>
+        </a>
+      </div>
     </div>
 
-    <div id="animatedModal2" class="popup-modal2">
-        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-        <div id="btn-close-modal" class="close-animatedModal2 close-popup-modal"> <i class="ion-close-round"></i> </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2>Geschäfts Eines<br /> Web-Studios</h2>
-                        <div class="h-50"></div>
-                        <p>Appropriately maintain standards compliant total linkage with cutting-edge action items. Enthusiastically create seamless synergy rather than excellent value. Quickly promote premium strategic theme areas vis-a-vis.</p>
-                        <br /> <img src="img/portfolio/03.jpg" alt="" class="img-responsive" />
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-    <div id="animatedModal3" class="popup-modal3">
-        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-        <div id="btn-close-modal" class="close-animatedModal3 close-popup-modal"> <i class="ion-close-round"></i> </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2>Geschäfts Eines<br /> Web-Studios</h2>
-                        <div class="h-50"></div>
-                        <p>Appropriately maintain standards compliant total linkage with cutting-edge action items. Enthusiastically create seamless synergy rather than excellent value. Quickly promote premium strategic theme areas vis-a-vis.</p>
-                        <br /> <img src="img/portfolio/03.jpg" alt="" class="img-responsive" />
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-    <div id="animatedModal4" class="popup-modal4">
-        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-        <div id="btn-close-modal" class="close-animatedModal4 close-popup-modal"> <i class="ion-close-round"></i> </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2>Geschäfts Eines<br /> Web-Studios</h2>
-                        <div class="h-50"></div>
-                        <p>Appropriately maintain standards compliant total linkage with cutting-edge action items. Enthusiastically create seamless synergy rather than excellent value. Quickly promote premium strategic theme areas vis-a-vis.</p>
-                        <br /> <img src="img/portfolio/03.jpg" alt="" class="img-responsive" />
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-    <div id="animatedModal5" class="popup-modal5">
-        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-        <div id="btn-close-modal" class="close-animatedModal5 close-popup-modal"> <i class="ion-close-round"></i> </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2>Geschäfts Eines<br /> Web-Studios</h2>
-                        <div class="h-50"></div>
-                        <p>Appropriately maintain standards compliant total linkage with cutting-edge action items. Enthusiastically create seamless synergy rather than excellent value. Quickly promote premium strategic theme areas vis-a-vis.</p>
-                        <br /> <img src="img/portfolio/03.jpg" alt="" class="img-responsive" />
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-    <div id="animatedModal6" class="popup-modal6">
-        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-        <div id="btn-close-modal" class="close-animatedModal6 close-popup-modal"> <i class="ion-close-round"></i> </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2>Geschäfts Eines<br /> Web-Studios</h2>
-                        <div class="h-50"></div>
-                        <p>Appropriately maintain standards compliant total linkage with cutting-edge action items. Enthusiastically create seamless synergy rather than excellent value. Quickly promote premium strategic theme areas vis-a-vis.</p>
-                        <br /> <img src="img/portfolio/03.jpg" alt="" class="img-responsive" />
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-    <div id="animatedModal7" class="popup-modal7">
-        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-        <div id="btn-close-modal" class="close-animatedModal7 close-popup-modal"> <i class="ion-close-round"></i> </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2>Geschäfts Eines<br /> Web-Studios</h2>
-                        <div class="h-50"></div>
-                        <p>Appropriately maintain standards compliant total linkage with cutting-edge action items. Enthusiastically create seamless synergy rather than excellent value. Quickly promote premium strategic theme areas vis-a-vis.</p>
-                        <br /> <img src="img/portfolio/03.jpg" alt="" class="img-responsive" />
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-    <div id="animatedModal8" class="popup-modal8">
-        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-        <div id="btn-close-modal" class="close-animatedModal8 close-popup-modal"> <i class="ion-close-round"></i> </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2>Geschäfts Eines<br /> Web-Studios</h2>
-                        <div class="h-50"></div>
-                        <p>Appropriately maintain standards compliant total linkage with cutting-edge action items. Enthusiastically create seamless synergy rather than excellent value. Quickly promote premium strategic theme areas vis-a-vis.</p>
-                        <br /> <img src="img/portfolio/03.jpg" alt="" class="img-responsive" />
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-    <div id="animatedModal9" class="popup-modal9">
-        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-        <div id="btn-close-modal" class="close-animatedModal9 close-popup-modal"> <i class="ion-close-round"></i> </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2>Geschäfts Eines<br /> Web-Studios</h2>
-                        <div class="h-50"></div>
-                        <p>Appropriately maintain standards compliant total linkage with cutting-edge action items. Enthusiastically create seamless synergy rather than excellent value. Quickly promote premium strategic theme areas vis-a-vis.</p>
-                        <br /> <img src="img/portfolio/03.jpg" alt="" class="img-responsive" />
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-    <div id="animatedModal10" class="popup-modal10">
-        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-        <div id="btn-close-modal" class="close-animatedModal10 close-popup-modal"> <i class="ion-close-round"></i> </div>
-        <div class="clearfix"></div>
-        <div class="modal-content">
-            <div class="container">
-                <div class="portfolio-padding">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h2>Geschäfts Eines<br /> Web-Studios</h2>
-                        <div class="h-50"></div>
-                        <p>Appropriately maintain standards compliant total linkage with cutting-edge action items. Enthusiastically create seamless synergy rather than excellent value. Quickly promote premium strategic theme areas vis-a-vis.</p>
-                        <br /> <img src="img/portfolio/03.jpg" alt="" class="img-responsive" />
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-    <!--  plugins  -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/jquery.form.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-
-    <!--  main script  -->
-    <script src="js/custom.js"></script>
-</body>
-
+    <script src="./script.js"></script>
+  </body>
 </html>
