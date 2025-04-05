@@ -1,5 +1,4 @@
 const body = document.body
-
 const btnTheme = document.querySelector('.fa-moon')
 const btnHamburger = document.querySelector('.fa-bars')
 
