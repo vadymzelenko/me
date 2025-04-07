@@ -1,31 +1,37 @@
 const body = document.body
-
 const btnTheme = document.getElementById('btn-theme')
-const btnHamburger = document.querySelector('.nav__hamburger i')  // ищем иконку внутри кнопки
 
-const addThemeClass = (bodyClass, btnClass) => {
-  body.classList.add(bodyClass)
-  btnTheme.classList.add(btnClass)
-}
+// Початкове завантаження теми з localStorage
+const savedTheme = localStorage.getItem('portfolio-theme') || 'light'
+const savedIcon = localStorage.getItem('portfolio-btn-theme') || 'fa-moon'
 
-const getBodyTheme = localStorage.getItem('portfolio-theme')
-const getBtnTheme = localStorage.getItem('portfolio-btn-theme')
+// Очистка старих класів і встановлення початкових
+body.classList.remove('light', 'dark')
+btnTheme.classList.remove('fa-moon', 'fa-sun')
 
-if (getBodyTheme && getBtnTheme) {
-  addThemeClass(getBodyTheme, getBtnTheme)
-}
+body.classList.add(savedTheme)
+btnTheme.classList.add(savedIcon)
 
 const isDark = () => body.classList.contains('dark')
 
-const setTheme = (bodyClass, btnClass) => {
-  body.classList.remove(localStorage.getItem('portfolio-theme'))
-  btnTheme.classList.remove(localStorage.getItem('portfolio-btn-theme'))
+const setTheme = (theme, icon) => {
+  body.classList.remove('light', 'dark')
+  btnTheme.classList.remove('fa-moon', 'fa-sun')
 
-  addThemeClass(bodyClass, btnClass)
+  body.classList.add(theme)
+  btnTheme.classList.add(icon)
 
-  localStorage.setItem('portfolio-theme', bodyClass)
-  localStorage.setItem('portfolio-btn-theme', btnClass)
+  localStorage.setItem('portfolio-theme', theme)
+  localStorage.setItem('portfolio-btn-theme', icon)
 }
+
+btnTheme.addEventListener('click', () => {
+  if (isDark()) {
+    setTheme('light', 'fa-moon')
+  } else {
+    setTheme('dark', 'fa-sun')
+  }
+})
 
 const toggleTheme = () =>
   isDark() ? setTheme('light', 'fa-moon') : setTheme('dark', 'fa-sun')
