@@ -1,6 +1,7 @@
 const body = document.body
-const btnTheme = document.getElementById('btn-theme')
-const btnHamburger = document.querySelector('.fa-bars')
+const btnTheme = document.getElementById('btn-theme') // теперь это иконка <i>
+const btnHamburger = document.querySelector('.nav__hamburger')
+const navUl = document.querySelector('.nav__list')
 
 const addThemeClass = (bodyClass, btnClass) => {
   body.classList.add(bodyClass)
@@ -11,18 +12,6 @@ const removeThemeClass = (bodyClass, btnClass) => {
   body.classList.remove(bodyClass)
   btnTheme.classList.remove(btnClass)
 }
-
-const getBodyTheme = localStorage.getItem('portfolio-theme')
-const getBtnTheme = localStorage.getItem('portfolio-btn-theme')
-
-if (getBodyTheme && getBtnTheme) {
-  addThemeClass(getBodyTheme, getBtnTheme)
-} else {
-  // дефолтна тема
-  setTheme('dark', 'fa-moon')
-}
-
-const isDark = () => body.classList.contains('dark')
 
 const setTheme = (bodyClass, btnClass) => {
   const oldBodyClass = localStorage.getItem('portfolio-theme')
@@ -37,28 +26,40 @@ const setTheme = (bodyClass, btnClass) => {
   localStorage.setItem('portfolio-btn-theme', btnClass)
 }
 
+const isDark = () => body.classList.contains('dark')
+
 const toggleTheme = () => {
-  isDark() ? setTheme('light', 'fa-moon') : setTheme('dark', 'fa-sun')
+  isDark() ? setTheme('light', 'fa-sun') : setTheme('dark', 'fa-moon')
 }
 
-btnTheme.addEventListener('click', toggleTheme)
+// Применение сохранённой темы
+const savedBodyTheme = localStorage.getItem('portfolio-theme')
+const savedBtnTheme = localStorage.getItem('portfolio-btn-theme')
 
-const displayList = () => {
-  const navUl = document.querySelector('.nav__list')
+if (savedBodyTheme && savedBtnTheme) {
+  addThemeClass(savedBodyTheme, savedBtnTheme)
+} else {
+  setTheme('dark', 'fa-moon') // дефолтная тема
+}
 
-  if (btnHamburger.classList.contains('fa-bars')) {
-    btnHamburger.classList.remove('fa-bars')
-    btnHamburger.classList.add('fa-times')
+btnTheme.parentElement.addEventListener('click', toggleTheme)
+
+// Бургер меню
+btnHamburger.addEventListener('click', () => {
+  const icon = btnHamburger.querySelector('i')
+
+  if (icon.classList.contains('fa-bars')) {
+    icon.classList.remove('fa-bars')
+    icon.classList.add('fa-times')
     navUl.classList.add('display-nav-list')
   } else {
-    btnHamburger.classList.remove('fa-times')
-    btnHamburger.classList.add('fa-bars')
+    icon.classList.remove('fa-times')
+    icon.classList.add('fa-bars')
     navUl.classList.remove('display-nav-list')
   }
-}
+})
 
-btnHamburger.addEventListener('click', displayList)
-
+// Scroll top кнопка
 const scrollUp = () => {
   const btnScrollTop = document.querySelector('.scroll-top')
 
@@ -73,4 +74,3 @@ const scrollUp = () => {
 }
 
 document.addEventListener('scroll', scrollUp)
-
