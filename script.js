@@ -1,63 +1,165 @@
-const body = document.body
+// ==================
+// Custom Cursor
+// ==================
+const cursor = document.getElementById('cursor');
+const trail  = document.getElementById('cursor-trail');
 
-const btnTheme = document.querySelector('.fa-moon')
-const btnHamburger = document.querySelector('.fa-bars')
+let mouseX = 0, mouseY = 0;
+let trailX = 0, trailY = 0;
 
-const addThemeClass = (bodyClass, btnClass) => {
-  body.classList.add(bodyClass)
-  btnTheme.classList.add(btnClass)
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  cursor.style.left = mouseX + 'px';
+  cursor.style.top  = mouseY + 'px';
+});
+
+// Smooth trail
+function animateTrail() {
+  trailX += (mouseX - trailX) * 0.12;
+  trailY += (mouseY - trailY) * 0.12;
+  trail.style.left = trailX + 'px';
+  trail.style.top  = trailY + 'px';
+  requestAnimationFrame(animateTrail);
+}
+animateTrail();
+
+// Cursor hover state on interactive elements
+const hoverTargets = document.querySelectorAll('a, button, .skill-chip, .project-card');
+hoverTargets.forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('cursor--hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('cursor--hover'));
+});
+
+// ==================
+// Mobile Hamburger
+// ==================
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+  document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+});
+
+// Close mobile nav on link click
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// ==================
+// Project Card Previews
+// ==================
+const isMobile = () => window.innerWidth <= 768;
+
+function initPreviews() {
+  const cards = document.querySelectorAll('.project-card');
+
+  cards.forEach(card => {
+    const preview   = card.querySelector('.card-preview');
+    const loader    = card.querySelector('.card-preview__loader');
+    const iframe    = card.querySelector('.card-preview__iframe');
+    let   loaded    = false;
+    let   hoverTimer = null;
+
+    function loadIframe() {
+      if (loaded) return;
+      loaded = true;
+      const src = iframe.dataset.src;
+      if (!src) return;
+
+      // Show loader for ~2 seconds, then reveal iframe
+      iframe.src = src;
+      iframe.addEventListener('load', () => {
+        // Minimum 2s loader display
+        setTimeout(() => {
+          loader.classList.add('hidden');
+          iframe.classList.add('loaded');
+        }, 400); // already waited ~2s from hover start
+      });
+
+      // Fallback: hide loader after 2.5s even if iframe doesn't fire load
+      setTimeout(() => {
+        loader.classList.add('hidden');
+        iframe.classList.add('loaded');
+      }, 2500);
+    }
+
+    if (!isMobile()) {
+      // Desktop: hover triggers 2s loader then iframe
+      card.addEventListener('mouseenter', () => {
+        if (loaded) return;
+        hoverTimer = setTimeout(() => {
+          loadIframe();
+        }, 0);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        clearTimeout(hoverTimer);
+      });
+    } else {
+      // Mobile: tap on the preview area loads it
+      preview.addEventListener('click', (e) => {
+        if (!loaded) {
+          e.preventDefault();
+          e.stopPropagation();
+          loadIframe();
+
+          // After load show a tap-to-open button
+          setTimeout(() => {
+            const btn = document.createElement('a');
+            btn.href = card.dataset.url;
+            btn.target = '_blank';
+            btn.className = 'preview-open';
+            btn.innerHTML = '<i class="fas fa-external-link-alt"></i> open live';
+            const overlay = document.createElement('div');
+            overlay.className = 'card-preview__overlay';
+            overlay.style.opacity = '1';
+            overlay.style.display = 'flex';
+            overlay.appendChild(btn);
+            preview.appendChild(overlay);
+          }, 2600);
+        }
+      });
+    }
+  });
 }
 
-const getBodyTheme = localStorage.getItem('portfolio-theme')
-const getBtnTheme = localStorage.getItem('portfolio-btn-theme')
+initPreviews();
 
-addThemeClass(getBodyTheme, getBtnTheme)
+// ==================
+// Scroll Top Button
+// ==================
+const scrollTopBtn = document.getElementById('scrollTop');
 
-const isDark = () => body.classList.contains('dark')
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) {
+    scrollTopBtn.classList.add('visible');
+  } else {
+    scrollTopBtn.classList.remove('visible');
+  }
+});
 
-const setTheme = (bodyClass, btnClass) => {
+// ==================
+// Intersection Observer — animate sections in
+// ==================
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
 
-	body.classList.remove(localStorage.getItem('portfolio-theme'))
-	btnTheme.classList.remove(localStorage.getItem('portfolio-btn-theme'))
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animationPlayState = 'running';
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
 
-  addThemeClass(bodyClass, btnClass)
-
-	localStorage.setItem('portfolio-theme', bodyClass)
-	localStorage.setItem('portfolio-btn-theme', btnClass)
-}
-
-const toggleTheme = () =>
-	isDark() ? setTheme('light', 'fa-moon') : setTheme('dark', 'fa-sun')
-
-btnTheme.addEventListener('click', toggleTheme)
-
-const displayList = () => {
-	const navUl = document.querySelector('.nav__list')
-
-	if (btnHamburger.classList.contains('fa-bars')) {
-		btnHamburger.classList.remove('fa-bars')
-		btnHamburger.classList.add('fa-times')
-		navUl.classList.add('display-nav-list')
-	} else {
-		btnHamburger.classList.remove('fa-times')
-		btnHamburger.classList.add('fa-bars')
-		navUl.classList.remove('display-nav-list')
-	}
-}
-
-btnHamburger.addEventListener('click', displayList)
-
-const scrollUp = () => {
-	const btnScrollTop = document.querySelector('.scroll-top')
-
-	if (
-		body.scrollTop > 500 ||
-		document.documentElement.scrollTop > 500
-	) {
-		btnScrollTop.style.display = 'block'
-	} else {
-		btnScrollTop.style.display = 'none'
-	}
-}
-
-document.addEventListener('scroll', scrollUp)
+document.querySelectorAll('.project-card, .skill-chip').forEach(el => {
+  el.style.animationPlayState = 'paused';
+  observer.observe(el);
+});
