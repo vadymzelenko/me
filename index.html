@@ -1,174 +1,261 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Portfolio" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Vadym Zelenko</title>
-  </head>
-  <body class="light" id="top">
-    <header class="header center">
-      <h3>
-        <a href="https://github.com/01cheese" class="link">VZ.</a>
-      </h3>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Vadym Zelenko — Developer Portfolio" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Vadym Zelenko</title>
+</head>
+<body id="top">
 
-      <nav class="nav center">
-        <ul class="nav__list center">
-          <li class="nav__list-item">
-            <a class="link link--nav" href="#projects" >Projects</a>
-          </li>
-          <li class="nav__list-item">
-            <a class="link link--nav" href="#skills">Skills</a>
-          </li>
-          <li class="nav__list-item">
-            <a class="link link--nav" href="#contact">Contact</a>
-          </li>
-        </ul>
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursor-trail"></div>
 
-        <button type="button" aria-label="toggle theme" class="btn btn--icon">
-          <i aria-hidden="true" id="btn-theme" class="fas fa-moon"></i>
-        </button>
+  <!-- Noise overlay -->
+  <div class="noise"></div>
 
-        <button type="button" aria-label="toggle navigation" class="btn btn--icon nav__hamburger">
-          <i aria-hidden="true" class="fas fa-bars"></i>
-        </button>
-      </nav>
-    </header>
+  <!-- Header -->
+  <header class="header">
+    <a href="#top" class="logo">VZ<span class="logo-dot">.</span></a>
 
-    <main>
-      <!-- About -->
-      <div class="about center">
-        <h1>Hi, I am <span class="about__name">Vadym Zelenko.</span></h1>
-        <h2 class="about__role">A Front Back end Developer.</h2>
-        <p class="about__desc">
-          js logic <3 
-        </p>
+    <nav class="nav">
+      <ul class="nav__list" id="navList">
+        <li><a class="nav-link" href="#projects">projects</a></li>
+        <li><a class="nav-link" href="#skills">skills</a></li>
+        <li><a class="nav-link" href="#contact">contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
 
-        <div class="about__contact center">
-          <a href="VadymZelenko.pdf" target="_blank">
-            <span class="btn btn--outline">Resume</span>
+  <!-- Mobile overlay nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#projects" class="mobile-link">projects</a></li>
+      <li><a href="#skills" class="mobile-link">skills</a></li>
+      <li><a href="#contact" class="mobile-link">contact</a></li>
+    </ul>
+  </div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__eyebrow">
+        <span class="dot dot--blue"></span>
+        available for work
+      </div>
+      <h1 class="hero__title">
+        Hi, I'm
+        <span class="rainbow-text" data-text="Vadym Zelenko">Vadym Zelenko</span>
+      </h1>
+      <p class="hero__sub">Full-stack developer. <span class="mono">js logic &lt;3</span></p>
+      <p class="hero__desc">
+        Building fast, clean web experiences from backend APIs to frontend UIs — with a love for elegant code and thoughtful design.
+      </p>
+      <div class="hero__cta">
+        <a href="VadymZelenko.pdf" target="_blank" class="btn-primary">
+          <span>Resume</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <div class="socials">
+          <a href="https://github.com/01cheese" target="_blank" class="social-link" aria-label="GitHub">
+            <i class="fab fa-github"></i>
           </a>
-
-          <a href="https://github.com/01cheese" aria-label="github" class="link link--icon">
-            <i aria-hidden="true" class="fab fa-github"></i>
-          </a>
-
-          <a href="https://github.com/01cheese" aria-label="linkedin" class="link link--icon">
-            <i aria-hidden="true" class="fab fa-linkedin"></i>
+          <a href="https://github.com/01cheese" target="_blank" class="social-link" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
           </a>
         </div>
       </div>
 
-      <!-- Projects -->
-      <section id="projects" class="section projects">
-        <h2 class="section__title">Projects</h2>
+      <!-- Floating badges -->
+      <div class="hero__badges">
+        <span class="badge badge--blue">React</span>
+        <span class="badge badge--green">Node.js</span>
+        <span class="badge badge--yellow">Python</span>
+        <span class="badge badge--red">FastAPI</span>
+      </div>
+    </section>
 
-        <div class="projects__grid">
-          <div class="project">
-            <h3>Online Pacman</h3>
-            <p class="project__description">
-              Online game with Google/GitHub auth, leaderboard and interesting design 
-            </p>
-            <ul class="project__stack">
-              <li class="project__stack-item">React</li>
-              <li class="project__stack-item">Node.js</li>
-              <li class="project__stack-item">MongoDB</li>
-            </ul>
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="section-header">
+        <span class="section-label mono">// 01</span>
+        <h2 class="section-title">Projects</h2>
+      </div>
 
-            <a href="https://github.com" target="_blank" aria-label="source code" class="link link--icon">
-              <i aria-hidden="true" class="fab fa-github"></i>
-            </a>
-            <a href="https://pacman.vzbb.site" target="_blank" aria-label="live preview" class="link link--icon">
-              <i aria-hidden="true" class="fas fa-external-link-alt"></i>
-            </a>
+      <div class="projects-grid">
+
+        <!-- Pacman -->
+        <article class="project-card" data-url="https://pacman.vzbb.site" data-type="site">
+          <div class="card-preview">
+            <div class="card-preview__loader">
+              <div class="loader-bar"></div>
+              <span class="loader-text mono">loading preview...</span>
+            </div>
+            <iframe class="card-preview__iframe" data-src="https://pacman.vzbb.site" title="Online Pacman preview" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
+            <div class="card-preview__overlay">
+              <a href="https://pacman.vzbb.site" target="_blank" class="preview-open">
+                <i class="fas fa-external-link-alt"></i> open live
+              </a>
+            </div>
           </div>
-
-          <div class="project">
-            <h3>Temporary storage</h3>
-            <p class="project__description">
-              Service for quick saving and sharing your files. Here autodelete files until you time, creating link
-            </p>
-            <ul class="project__stack">
-              <li class="project__stack-item">MongoDB/Supabase</li>
-              <li class="project__stack-item">Node.js</li>
-              <li class="project__stack-item">Redis</li>
+          <div class="card-body">
+            <div class="card-top">
+              <h3 class="card-title">Online Pacman</h3>
+              <div class="card-links">
+                <a href="https://github.com" target="_blank" class="icon-link" aria-label="source"><i class="fab fa-github"></i></a>
+                <a href="https://pacman.vzbb.site" target="_blank" class="icon-link" aria-label="live"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+            <p class="card-desc">Online game with Google/GitHub auth, real-time leaderboard and a polished, retro-modern design.</p>
+            <ul class="card-stack">
+              <li class="tag tag--blue">React</li>
+              <li class="tag tag--green">Node.js</li>
+              <li class="tag tag--red">MongoDB</li>
             </ul>
-
-            <a href="https://github.com/01cheese/Temporary-storage" target="_blank" aria-label="source code" class="link link--icon">
-              <i aria-hidden="true" class="fab fa-github"></i>
-            </a>
-            <a href="https://temporary-storage-f.onrender.com/" target="_blank" aria-label="live preview" class="link link--icon">
-              <i aria-hidden="true" class="fas fa-external-link-alt"></i>
-            </a>
           </div>
+        </article>
 
-          <div class="project">
-            <h3>Online compiler</h3>
-            <p class="project__description">
-              Support three programming languages C++, JS, Python. Backend on FastAPI
-            </p>
-            <ul class="project__stack">
-              <li class="project__stack-item">Python</li>
-              <li class="project__stack-item">Redis/Celery</li>
-              <li class="project__stack-item">Asynchrony</li>
+        <!-- Temp storage -->
+        <article class="project-card" data-url="https://temporary-storage-f.onrender.com/" data-type="site">
+          <div class="card-preview">
+            <div class="card-preview__loader">
+              <div class="loader-bar"></div>
+              <span class="loader-text mono">loading preview...</span>
+            </div>
+            <iframe class="card-preview__iframe" data-src="https://temporary-storage-f.onrender.com/" title="Temporary Storage preview" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
+            <div class="card-preview__overlay">
+              <a href="https://temporary-storage-f.onrender.com/" target="_blank" class="preview-open">
+                <i class="fas fa-external-link-alt"></i> open live
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <h3 class="card-title">Temporary Storage</h3>
+              <div class="card-links">
+                <a href="https://github.com/01cheese/Temporary-storage" target="_blank" class="icon-link" aria-label="source"><i class="fab fa-github"></i></a>
+                <a href="https://temporary-storage-f.onrender.com/" target="_blank" class="icon-link" aria-label="live"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+            <p class="card-desc">Quick-share file storage with auto-delete timers, shareable links, and ephemeral hosting.</p>
+            <ul class="card-stack">
+              <li class="tag tag--yellow">MongoDB</li>
+              <li class="tag tag--green">Node.js</li>
+              <li class="tag tag--blue">Redis</li>
             </ul>
+          </div>
+        </article>
 
-            <a href="#" target="_blank" aria-label="source code" class="link link--icon">
-              <i aria-hidden="true" class="fab fa-github"></i>
-            </a>
-            <a href="https://onlinecompiler-895n.onrender.com" target="_blank" aria-label="live preview" class="link link--icon">
-              <i aria-hidden="true" class="fas fa-external-link-alt"></i>
-            </a>
+        <!-- Online compiler -->
+        <article class="project-card" data-url="https://onlinecompiler-895n.onrender.com" data-type="site">
+          <div class="card-preview">
+            <div class="card-preview__loader">
+              <div class="loader-bar"></div>
+              <span class="loader-text mono">loading preview...</span>
+            </div>
+            <iframe class="card-preview__iframe" data-src="https://onlinecompiler-895n.onrender.com" title="Online Compiler preview" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
+            <div class="card-preview__overlay">
+              <a href="https://onlinecompiler-895n.onrender.com" target="_blank" class="preview-open">
+                <i class="fas fa-external-link-alt"></i> open live
+              </a>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <h3 class="card-title">Online Compiler</h3>
+              <div class="card-links">
+                <a href="#" class="icon-link" aria-label="source"><i class="fab fa-github"></i></a>
+                <a href="https://onlinecompiler-895n.onrender.com" target="_blank" class="icon-link" aria-label="live"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+            <p class="card-desc">Async multi-language compiler: C++, JS, Python — powered by FastAPI, Celery and Redis queues.</p>
+            <ul class="card-stack">
+              <li class="tag tag--blue">Python</li>
+              <li class="tag tag--red">Redis/Celery</li>
+              <li class="tag tag--green">FastAPI</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="section-header">
+        <span class="section-label mono">// 02</span>
+        <h2 class="section-title">Skills</h2>
+      </div>
+      <div class="skills-wrap">
+        <div class="skill-group">
+          <span class="skill-group-label mono">Frontend</span>
+          <div class="skills-row">
+            <span class="skill-chip">HTML</span>
+            <span class="skill-chip">CSS</span>
+            <span class="skill-chip">JavaScript</span>
+            <span class="skill-chip">React</span>
           </div>
         </div>
-      </section>
-
-      <!-- Skills -->
-      <section class="section skills" id="skills">
-        <h2 class="section__title">Skills</h2>
-        <ul class="skills__list">
-                    <li class="skills__list-item btn btn--plain">Python</li>
-<li class="skills__list-item btn btn--plain">HTML</li>
-          <li class="skills__list-item btn btn--plain">CSS</li>
-          <li class="skills__list-item btn btn--plain">FastAPI</li>
-          <li class="skills__list-item btn btn--plain">MongoDB</li>
-          <li class="skills__list-item btn btn--plain">JavaScript</li>
-          <li class="skills__list-item btn btn--plain">Express</li>
-          <li class="skills__list-item btn btn--plain">React</li>
-          <li class="skills__list-item btn btn--plain">Redis</li>
-          <li class="skills__list-item btn btn--plain">SQL</li>
-          <li class="skills__list-item btn btn--plain">Asynchrony</li>
-        </ul>
-      </section>
-
-      <!-- Contact -->
-      <section class="section contact center" id="contact">
-        <h2 class="section__title">Contact</h2>
-        <a href="mailto:zelenko009@gmail.com">
-          <span class="btn btn--outline">Email me</span>
-        </a>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <a href="https://github.com/01cheese" class="link footer__link">
-        Created By VZ
-      </a>
-    </footer>
-
-    <div class="scroll-container">
-      <div class="scroll-top">
-        <a aria-label="Scroll up" href="#top">
-          <i aria-hidden="true" class="fas fa-arrow-up"></i>
-        </a>
+        <div class="skill-group">
+          <span class="skill-group-label mono">Backend</span>
+          <div class="skills-row">
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">FastAPI</span>
+            <span class="skill-chip">Node.js</span>
+            <span class="skill-chip">Express</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <span class="skill-group-label mono">Data &amp; Infra</span>
+          <div class="skills-row">
+            <span class="skill-chip">MongoDB</span>
+            <span class="skill-chip">SQL</span>
+            <span class="skill-chip">Redis</span>
+            <span class="skill-chip">Asynchrony</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <script src="./script.js"></script>
-  </body>
+    <!-- Contact -->
+    <section id="contact" class="section contact-section">
+      <div class="section-header">
+        <span class="section-label mono">// 03</span>
+        <h2 class="section-title">Contact</h2>
+      </div>
+      <div class="contact-inner">
+        <p class="contact-sub">Have a project in mind or just want to say hi?</p>
+        <a href="mailto:zelenko009@gmail.com" class="btn-primary btn-primary--large">
+          <span>Email me</span>
+          <i class="fas fa-paper-plane"></i>
+        </a>
+        <p class="contact-email mono">zelenko009@gmail.com</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span class="mono">© 2024</span>
+    <a href="https://github.com/01cheese" target="_blank" class="footer-link">Vadym Zelenko</a>
+    <span class="mono">– built with &lt;3</span>
+  </footer>
+
+  <!-- Scroll top -->
+  <a href="#top" class="scroll-top" id="scrollTop" aria-label="Scroll up">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
 </html>
