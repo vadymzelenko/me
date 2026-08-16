@@ -30,7 +30,6 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
-        .card-preview__iframe.loaded { opacity: 1; }
         .loader-bar { width: 60px; height: 2px; background: rgba(255,255,255,0.1); position: relative; overflow: hidden; }
         .loader-bar::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: white; animation: loading 1.5s infinite ease-in-out; }
         @keyframes loading { 100% { left: 100%; } }
@@ -66,66 +65,96 @@
         <p class="gsap-fade text-xl text-neutral-500 font-light max-w-lg">A complete archive of web applications, tools, and experiments I've built.</p>
     </section>
 
-    <!-- Сетка Проектов с восстановленными превью -->
+    <!-- Сетка Проектов -->
     <section class="px-6 md:px-12 mx-auto max-w-7xl flex flex-col gap-32">
 
         <!-- Проект 1 -->
-        <article class="gsap-project group relative flex flex-col md:flex-row gap-8 md:gap-16 items-center" data-url="https://pacman.vzbb.site">
+        <article class="gsap-project group relative flex flex-col md:flex-row gap-8 md:gap-16 items-center" data-url="https://projects10hl.vercel.app/web_projects/EuroLogistics.html">
             <div class="w-full md:w-3/5 aspect-[4/3] md:aspect-[16/10] relative rounded-[2rem] overflow-hidden bg-neutral-900 border border-white/5 project-preview-container hover:border-white/15 transition-colors duration-500">
-                <div class="card-preview__loader absolute inset-0 flex flex-col gap-4 items-center justify-center"><div class="loader-bar"></div><span class="text-xs text-neutral-500 font-mono tracking-widest uppercase">Hover to preview</span></div>
-                <iframe class="card-preview__iframe absolute inset-0 h-full w-full opacity-0 transition-opacity duration-700 pointer-events-none" data-src="https://pacman.vzbb.site" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
+                <div class="card-preview__loader absolute inset-0 flex flex-col gap-4 items-center justify-center">
+                    <div class="loader-bar"></div>
+                    <span class="text-xs text-neutral-500 font-mono tracking-widest uppercase">Loading site</span>
+                </div>
+                <iframe class="card-preview__iframe absolute inset-0 h-full w-full opacity-0 transition-opacity duration-700 pointer-events-none group-hover:pointer-events-auto" data-src="https://projects10hl.vercel.app/web_projects/EuroLogistics.html" sandbox="allow-scripts allow-same-origin"></iframe>
             </div>
             <div class="w-full md:w-2/5 flex flex-col">
-                <div class="mb-4 flex gap-3 text-xs font-mono text-neutral-500 uppercase tracking-wider"><span>01</span><span>—</span><span>Game Dev</span></div>
-                <h3 class="text-4xl font-medium tracking-tight mb-4">Online Pacman</h3>
-                <p class="text-neutral-400 leading-relaxed mb-8">Online game with Google/GitHub auth, real-time leaderboard and a polished design.</p>
+                <div class="mb-4 flex gap-3 text-xs font-mono text-neutral-500 uppercase tracking-wider"><span>01</span><span>—</span><span>Business Dev</span></div>
+                <h3 class="text-4xl font-medium tracking-tight mb-4">EuroLogistics</h3>
+                <p class="text-neutral-400 leading-relaxed mb-8">A modern, responsive landing page designed for a European logistics and freight forwarding company.</p>
                 <div class="flex gap-6 text-sm font-medium">
                     <a href="https://pacman.vzbb.site" target="_blank" class="text-white border-b border-white pb-1 hover:text-neutral-300 transition-colors">Live Site ↗</a>
-                    <a href="#" class="text-neutral-500 hover:text-white transition-colors border-b border-transparent">Source Code ↗</a>
+                    <a href="https://github.com/01cheese/projects10hl/blob/main/web_projects/EuroLogistics.html" target="_blank" class="text-neutral-500 hover:text-white transition-colors border-b border-transparent">Source Code ↗</a>
                 </div>
             </div>
         </article>
 
         <!-- Проект 2 (реверс) -->
-        <article class="gsap-project group relative flex flex-col md:flex-row-reverse gap-8 md:gap-16 items-center" data-url="https://temporary-storage-f.onrender.com/">
+        <article class="gsap-project group relative flex flex-col md:flex-row-reverse gap-8 md:gap-16 items-center" data-url="https://projects10hl.vercel.app/web_projects/LUMIERE.html">
             <div class="w-full md:w-3/5 aspect-[4/3] md:aspect-[16/10] relative rounded-[2rem] overflow-hidden bg-neutral-900 border border-white/5 project-preview-container hover:border-white/15 transition-colors duration-500">
-                <div class="card-preview__loader absolute inset-0 flex flex-col gap-4 items-center justify-center"><div class="loader-bar"></div><span class="text-xs text-neutral-500 font-mono tracking-widest uppercase">Hover to preview</span></div>
-                <iframe class="card-preview__iframe absolute inset-0 h-full w-full opacity-0 transition-opacity duration-700 pointer-events-none" data-src="https://temporary-storage-f.onrender.com/" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
+                <div class="card-preview__loader absolute inset-0 flex flex-col gap-4 items-center justify-center">
+                    <div class="loader-bar"></div>
+                    <span class="text-xs text-neutral-500 font-mono tracking-widest uppercase">Loading site</span>
+                </div>
+                <iframe class="card-preview__iframe absolute inset-0 h-full w-full opacity-0 transition-opacity duration-700 pointer-events-none group-hover:pointer-events-auto" data-src="https://projects10hl.vercel.app/web_projects/LUMIERE.html" sandbox="allow-scripts allow-same-origin"></iframe>
             </div>
             <div class="w-full md:w-2/5 flex flex-col">
-                <div class="mb-4 flex gap-3 text-xs font-mono text-neutral-500 uppercase tracking-wider"><span>02</span><span>—</span><span>Web Tool</span></div>
-                <h3 class="text-4xl font-medium tracking-tight mb-4">Temp Storage</h3>
-                <p class="text-neutral-400 leading-relaxed mb-8">Quick-share file storage with auto-delete timers, shareable links, and ephemeral hosting.</p>
+                <div class="mb-4 flex gap-3 text-xs font-mono text-neutral-500 uppercase tracking-wider"><span>02</span><span>—</span><span>Business Dev</span></div>
+                <h3 class="text-4xl font-medium tracking-tight mb-4">Premium Barbershop</h3>
+                <p class="text-neutral-400 leading-relaxed mb-8">A sleek and elegant landing page designed for a high-end barbershop based in Kraków. The website is specifically crafted to convey a sophisticated atmosphere.</p>
                 <div class="flex gap-6 text-sm font-medium">
-                    <a href="https://temporary-storage-f.onrender.com/" target="_blank" class="text-white border-b border-white pb-1 hover:text-neutral-300 transition-colors">Live Site ↗</a>
-                    <a href="https://github.com/01cheese/Temporary-storage" target="_blank" class="text-neutral-500 hover:text-white transition-colors border-b border-transparent">Source Code ↗</a>
+                    <a href="https://projects10hl.vercel.app/web_projects/LUMIERE.html" target="_blank" class="text-white border-b border-white pb-1 hover:text-neutral-300 transition-colors">Live Site ↗</a>
+                    <a href="https://github.com/01cheese/projects10hl/blob/main/web_projects/LUMIERE.html" target="_blank" class="text-neutral-500 hover:text-white transition-colors border-b border-transparent">Source Code ↗</a>
                 </div>
             </div>
         </article>
 
         <!-- Проект 3 -->
-        <article class="gsap-project group relative flex flex-col md:flex-row gap-8 md:gap-16 items-center" data-url="https://onlinecompiler-895n.onrender.com">
+        <article class="gsap-project group relative flex flex-col md:flex-row gap-8 md:gap-16 items-center" data-url="https://projects10hl.vercel.app/web_projects/Revelox.html">
             <div class="w-full md:w-3/5 aspect-[4/3] md:aspect-[16/10] relative rounded-[2rem] overflow-hidden bg-neutral-900 border border-white/5 project-preview-container hover:border-white/15 transition-colors duration-500">
-                <div class="card-preview__loader absolute inset-0 flex flex-col gap-4 items-center justify-center"><div class="loader-bar"></div><span class="text-xs text-neutral-500 font-mono tracking-widest uppercase">Hover to preview</span></div>
-                <iframe class="card-preview__iframe absolute inset-0 h-full w-full opacity-0 transition-opacity duration-700 pointer-events-none" data-src="https://onlinecompiler-895n.onrender.com" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
+                <div class="card-preview__loader absolute inset-0 flex flex-col gap-4 items-center justify-center">
+                    <div class="loader-bar"></div>
+                    <span class="text-xs text-neutral-500 font-mono tracking-widest uppercase">Loading site</span>
+                </div>
+                <iframe class="card-preview__iframe absolute inset-0 h-full w-full opacity-0 transition-opacity duration-700 pointer-events-none group-hover:pointer-events-auto" data-src="https://projects10hl.vercel.app/web_projects/Revelox.html" sandbox="allow-scripts allow-same-origin"></iframe>
             </div>
             <div class="w-full md:w-2/5 flex flex-col">
-                <div class="mb-4 flex gap-3 text-xs font-mono text-neutral-500 uppercase tracking-wider"><span>03</span><span>—</span><span>Backend API</span></div>
-                <h3 class="text-4xl font-medium tracking-tight mb-4">Online Compiler</h3>
-                <p class="text-neutral-400 leading-relaxed mb-8">Async multi-language compiler: C++, JS, Python — powered by FastAPI, Celery and Redis queues.</p>
+                <div class="mb-4 flex gap-3 text-xs font-mono text-neutral-500 uppercase tracking-wider"><span>03</span><span>—</span><span>Business Dev</span></div>
+                <h3 class="text-4xl font-medium tracking-tight mb-4">Revelox SaaS</h3>
+                <p class="text-neutral-400 leading-relaxed mb-8">A sleek, conversion-optimized landing page for a modern SaaS platform. Featuring clean typography, subtle animations, and a clear presentation of features and pricing to drive user sign-ups.</p>
                 <div class="flex gap-6 text-sm font-medium">
-                    <a href="https://onlinecompiler-895n.onrender.com" target="_blank" class="text-white border-b border-white pb-1 hover:text-neutral-300 transition-colors">Live Site ↗</a>
-                    <a href="#" class="text-neutral-500 hover:text-white transition-colors border-b border-transparent">Source Code ↗</a>
+                    <a href="https://projects10hl.vercel.app/web_projects/Revelox.html" target="_blank" class="text-white border-b border-white pb-1 hover:text-neutral-300 transition-colors">Live Site ↗</a>
+                    <a href="https://github.com/01cheese/projects10hl/blob/main/web_projects/Revelox.html" target="_blank" class="text-neutral-500 hover:text-white transition-colors border-b border-transparent">Source Code ↗</a>
                 </div>
             </div>
         </article>
 
+        <!-- Проект 4 (реверс) -->
+        <article class="gsap-project group relative flex flex-col md:flex-row-reverse gap-8 md:gap-16 items-center" data-url="https://projects10hl.vercel.app/web_projects/kawa_and_klimat.html">
+            <div class="w-full md:w-3/5 aspect-[4/3] md:aspect-[16/10] relative rounded-[2rem] overflow-hidden bg-neutral-900 border border-white/5 project-preview-container hover:border-white/15 transition-colors duration-500">
+                <div class="card-preview__loader absolute inset-0 flex flex-col gap-4 items-center justify-center">
+                    <div class="loader-bar"></div>
+                    <span class="text-xs text-neutral-500 font-mono tracking-widest uppercase">Loading site</span>
+                </div>
+                <iframe class="card-preview__iframe absolute inset-0 h-full w-full opacity-0 transition-opacity duration-700 pointer-events-none group-hover:pointer-events-auto" data-src="https://projects10hl.vercel.app/web_projects/kawa_and_klimat.html" sandbox="allow-scripts allow-same-origin"></iframe>
+            </div>
+            <div class="w-full md:w-2/5 flex flex-col">
+                <div class="mb-4 flex gap-3 text-xs font-mono text-neutral-500 uppercase tracking-wider">
+                    <span>04</span><span>—</span><span>Business Dev</span>
+                </div>
+                <h3 class="text-4xl font-medium tracking-tight mb-4">Kawa & Klimat</h3>
+                <p class="text-neutral-400 leading-relaxed mb-8">A warm, inviting landing page designed for a local café in Kraków. It features a beautifully categorized menu, a cozy visual gallery, and seamless table booking integration.</p>
+                <div class="flex gap-6 text-sm font-medium">
+                    <a href="https://projects10hl.vercel.app/web_projects/kawa_and_klimat.html" target="_blank" class="text-white border-b border-white pb-1 hover:text-neutral-300 transition-colors">Live Site ↗</a>
+                    <a href="https://github.com/01cheese/projects10hl/blob/main/web_projects/kawa_and_klimat.html" target="_blank" class="text-neutral-500 hover:text-white transition-colors border-b border-transparent">Source Code ↗</a>
+                </div>
+            </div>
+        </article>
     </section>
 </main>
 
 <footer class="border-t border-white/5 py-10 relative z-20">
     <div class="mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-12 max-w-7xl text-sm font-mono text-neutral-600 gap-4">
-        <p>VADYM ZELENKO © 2024</p>
+        <p>VADYM ZELENKO © 2026</p>
         <div class="flex gap-6"><a href="https://github.com/01cheese" target="_blank" class="hover:text-white transition-colors">GITHUB</a></div>
     </div>
 </footer>
@@ -141,16 +170,52 @@
     // Меню
     const hamburger = document.getElementById('hamburger'), mobileNav = document.getElementById('mobileNav');
     let isNavOpen = false;
-    hamburger.addEventListener('click', () => { isNavOpen = !isNavOpen; hamburger.innerText = isNavOpen ? 'CLOSE' : 'MENU'; mobileNav.style.opacity = isNavOpen ? '1' : '0'; mobileNav.style.pointerEvents = isNavOpen ? 'auto' : 'none'; document.body.style.overflow = isNavOpen ? 'hidden' : ''; });
+    hamburger.addEventListener('click', () => {
+        isNavOpen = !isNavOpen;
+        hamburger.innerText = isNavOpen ? 'CLOSE' : 'MENU';
+        mobileNav.style.opacity = isNavOpen ? '1' : '0';
+        mobileNav.style.pointerEvents = isNavOpen ? 'auto' : 'none';
+        document.body.style.overflow = isNavOpen ? 'hidden' : '';
+    });
     document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => { if(isNavOpen) hamburger.click(); }));
 
-    // Iframe Preview
-    document.querySelectorAll('.project-preview-container').forEach(container => {
-        const iframe = container.querySelector('.card-preview__iframe'), loader = container.querySelector('.card-preview__loader');
-        let loaded = false, hoverTimer;
-        function loadIframe() { if(loaded) return; loaded = true; iframe.src = iframe.dataset.src; iframe.onload = () => { setTimeout(() => { loader.style.display = 'none'; iframe.classList.add('loaded'); }, 300); }; }
-        if(window.innerWidth > 768) { container.addEventListener('mouseenter', () => hoverTimer = setTimeout(loadIframe, 200)); container.addEventListener('mouseleave', () => clearTimeout(hoverTimer)); }
-        else { container.addEventListener('click', e => { if(!loaded) { e.preventDefault(); loadIframe(); } else window.open(container.closest('article').dataset.url, '_blank'); }); }
+    // Умная предзагрузка Iframe через Intersection Observer
+    document.addEventListener("DOMContentLoaded", () => {
+        const iframes = document.querySelectorAll('.card-preview__iframe');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const iframe = entry.target;
+                    const src = iframe.getAttribute('data-src');
+
+                    if (src) {
+                        iframe.src = src;
+                        iframe.removeAttribute('data-src');
+
+                        iframe.onload = () => {
+                            // Делаем iframe видимым навсегда
+                            iframe.classList.remove('opacity-0');
+                            iframe.classList.add('opacity-100');
+
+                            // Прячем лоадер
+                            const container = iframe.closest('.project-preview-container');
+                            const loader = container.querySelector('.card-preview__loader');
+                            if (loader) {
+                                loader.style.transition = 'opacity 0.3s ease';
+                                loader.style.opacity = '0';
+                                setTimeout(() => loader.style.display = 'none', 300);
+                            }
+                        };
+                    }
+                    observer.unobserve(iframe);
+                }
+            });
+        }, {
+            rootMargin: "300px" // Загружаем заранее
+        });
+
+        iframes.forEach(iframe => observer.observe(iframe));
     });
 </script>
 </body>
