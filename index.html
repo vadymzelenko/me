@@ -1,14 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vadym Zelenko | Full-stack Developer</title>
 
+  <!-- Базовое SEO -->
+  <title>Vadym Zelenko (Вадим Зеленько) | Full-stack Developer</title>
+  <meta name="description" content="Portfolio of Vadym Zelenko (Вадим Зеленько / Вадик Зеленько) — Full-stack developer, Python & React engineer, and hardware maker. Custom web applications and cyberdecks." />
+  <meta name="keywords" content="Vadym Zelenko, Вадим Зеленко, Вадим Зеленько, Вадик Зеленько, Full-stack developer, Python developer, React, Next.js, веб-разработчик, програміст, Gdańsk, Poland, разработчик Гданьск" />
+  <meta name="author" content="Vadym Zelenko" />
+
+  <!-- Open Graph / Умные превью для Telegram, LinkedIn, Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Vadym Zelenko | Full-stack Developer" />
+  <meta property="og:description" content="Full-stack developer building fast, clean web experiences from backend APIs to frontend UIs." />
+  <meta property="og:url" content="https://vzbb.site/" />
+  <meta property="og:site_name" content="Vadym Zelenko Portfolio" />
+  <!-- Сюда можешь вставить ссылку на скриншот твоего сайта для красивого превью -->
+  <!-- <meta property="og:image" content="https://vzbb.site/og-image.jpg" /> -->
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vadym Zelenko | Full-stack Developer" />
+  <meta name="twitter:description" content="Full-stack developer building fast, clean web experiences from backend APIs to frontend UIs." />
+
+  <!-- Микроразметка Schema.org (JSON-LD) - Самая важная часть для поисковиков -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Vadym Zelenko",
+      "alternateName": [
+        "Вадим Зеленко",
+        "Вадим Зеленько",
+        "Вадик Зеленько",
+        "Vadym Zelenko",
+        "Vadim Zelenko"
+      ],
+      "jobTitle": "Full-stack Developer",
+      "url": "https://vzbb.site",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gdańsk",
+        "addressCountry": "Poland"
+      },
+      "sameAs": [
+        "https://github.com/01cheese",
+        "https://t.me/vzbbsi"
+      ],
+      "knowsAbout": ["Web Development", "Python", "React", "Next.js", "Full-stack", "Cyberdecks", "Hardware"]
+    }
+  </script>
+
+  <!-- Шрифты и Tailwind -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.3/dist/fonts/geist-sans/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.3/dist/fonts/geist-mono/style.css">
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Конфиг Tailwind -->
   <script>
     tailwind.config = {
       theme: {
@@ -20,14 +70,27 @@
     }
   </script>
 
+  <!-- Стили страницы -->
   <style>
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #050505; }
-    ::-webkit-scrollbar-thumb { background: #222222; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb { background: #333333; border-radius: 10px; }
 
     .noise-bg {
-      position: fixed; inset: 0; z-index: 10; pointer-events: none; opacity: 0.03;
+      position: fixed; inset: 0; z-index: 10; pointer-events: none; opacity: 0.04;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    .grid-pattern {
+      position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      background-size: 50px 50px;
+      background-image:
+              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      /* Удали mask-image для projects.html, если хочешь чтобы сетка была на весь экран,
+         или оставь затухание для index.html */
+      mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
     }
 
     .clip-text { overflow: hidden; display: inline-block; }
@@ -38,26 +101,28 @@
     @keyframes loading { 100% { left: 100%; } }
   </style>
 </head>
-<body class="bg-neutral-950 text-neutral-50 antialiased overflow-x-hidden" id="top">
+
+<body class="bg-neutral-950 text-neutral-50 antialiased overflow-x-hidden font-sans" id="top">
+<div class="grid-pattern"></div>
 <div class="noise-bg"></div>
 
 <!-- Навигация -->
-<header class="fixed top-0 z-40 w-full bg-neutral-950/80 backdrop-blur-md border-b border-white/5">
+<header class="fixed top-0 z-40 w-full bg-neutral-950/80 backdrop-blur-xl border-b border-white/10">
   <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-12">
-    <a href="index.html" class="text-xl font-medium">VZ.</a>
+    <a href="index.html" class="text-2xl font-black tracking-tighter">VZ.</a>
     <nav class="hidden md:block">
-      <ul class="flex gap-8 text-sm font-medium text-neutral-400">
+      <ul class="flex gap-8 text-sm font-bold text-neutral-400 uppercase tracking-widest">
         <li><a href="projects.html" class="hover:text-white transition-colors">Projects</a></li>
         <li><a href="index.html#skills" class="hover:text-white transition-colors">Skills</a></li>
         <li><a href="index.html#contact" class="hover:text-white transition-colors">Contact</a></li>
       </ul>
     </nav>
-    <button id="hamburger" class="md:hidden text-sm font-medium text-neutral-400 uppercase tracking-widest focus:outline-none hover:text-white transition-colors">Menu</button>
+    <button id="hamburger" class="md:hidden text-sm font-bold text-neutral-400 uppercase tracking-widest focus:outline-none hover:text-white transition-colors">Menu</button>
   </div>
 </header>
 
 <div id="mobileNav" class="fixed inset-0 z-30 bg-neutral-950 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500">
-  <ul class="flex flex-col gap-10 text-4xl font-light text-center tracking-tight">
+  <ul class="flex flex-col gap-10 text-5xl font-black text-center tracking-tight uppercase">
     <li><a href="projects.html" class="mobile-link text-neutral-400 hover:text-white">Projects</a></li>
     <li><a href="#skills" class="mobile-link text-neutral-400 hover:text-white">Skills</a></li>
     <li><a href="#contact" class="mobile-link text-neutral-400 hover:text-white">Contact</a></li>
@@ -66,62 +131,73 @@
 
 <main class="relative z-20">
   <!-- Hero Секция -->
-  <section class="min-h-screen flex flex-col justify-center px-6 md:px-12 mx-auto max-w-7xl pt-20">
-    <h1 class="text-[12vw] md:text-[8vw] font-medium leading-[0.9] tracking-tighter text-white mb-6">
+  <section class="min-h-screen flex flex-col justify-center px-6 md:px-12 mx-auto max-w-7xl pt-20 relative">
+    <h1 class="text-[14vw] md:text-[10vw] font-black leading-[0.85] tracking-tighter text-white mb-8 uppercase">
       <span class="clip-text"><span class="gsap-hero-text">Vadym</span></span><br />
       <span class="clip-text"><span class="gsap-hero-text text-neutral-500">Zelenko.</span></span>
     </h1>
-    <p class="gsap-hero-fade max-w-2xl text-xl md:text-2xl text-neutral-400 leading-relaxed font-light">
+    <p class="gsap-hero-fade max-w-2xl text-xl md:text-3xl text-neutral-300 leading-relaxed font-bold">
       Full-stack developer building fast, clean web experiences from backend APIs to frontend UIs.
     </p>
   </section>
 
   <!-- Избранный проект -->
-  <section class="px-6 md:px-12 mx-auto max-w-7xl py-32 border-t border-white/5">
-    <div class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
-      <h2 class="gsap-fade text-4xl md:text-6xl font-medium tracking-tighter">In process</h2>
+  <section class="px-6 md:px-12 mx-auto max-w-7xl py-32 border-t border-white/10">
+    <div class="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <h2 class="gsap-fade text-5xl md:text-7xl font-black tracking-tighter uppercase">In process</h2>
     </div>
 
-    <!-- Структура 60/40 с iframe и Intersection Observer -->
-    <article class="gsap-fade group relative flex flex-col md:flex-row gap-8 md:gap-16 items-center mb-16" data-url="https://onlinecompiler-895n.onrender.com/">
-      <div class="w-full md:w-3/5 aspect-[4/3] md:aspect-[16/10] relative rounded-[2rem] overflow-hidden bg-neutral-900 border border-white/5 group-hover:border-white/15 transition-colors duration-500 project-preview-container">
-        <div class="card-preview__loader absolute inset-0 flex flex-col gap-4 items-center justify-center">
+    <!-- Новая аккуратная структура проекта (Overlapping Card) -->
+    <article class="gsap-project relative flex flex-col md:block items-center mb-16 group w-full" data-url="https://onlinecompiler-895n.onrender.com/">
+
+      <!-- Iframe Контейнер (Широкий) -->
+      <div class="gsap-iframe-container w-full md:w-[85%] aspect-[4/3] md:aspect-[21/9] relative rounded-[2rem] overflow-hidden bg-neutral-900 border border-white/10 group-hover:border-white/30 transition-colors duration-500 project-preview-container shadow-2xl z-10">
+        <div class="card-preview__loader absolute inset-0 flex flex-col gap-4 items-center justify-center z-20">
           <div class="loader-bar"></div>
-          <span class="text-xs text-neutral-500 font-mono tracking-widest uppercase">Loading site</span>
+          <span class="text-xs text-neutral-500 font-bold tracking-widest uppercase">Loading site</span>
         </div>
-        <iframe class="card-preview__iframe absolute inset-0 h-full w-full opacity-0 transition-opacity duration-700 pointer-events-none group-hover:pointer-events-auto" data-src="https://onlinecompiler-895n.onrender.com/" sandbox="allow-scripts allow-same-origin"></iframe>
+        <!-- Маска для параллакса внутри -->
+        <div class="absolute inset-[-5%] w-[110%] h-[110%]">
+          <iframe class="card-preview__iframe absolute inset-0 h-full w-full opacity-0 transition-opacity duration-700 pointer-events-none group-hover:pointer-events-auto" data-src="https://onlinecompiler-895n.onrender.com/" sandbox="allow-scripts allow-same-origin"></iframe>
+        </div>
       </div>
 
-      <div class="w-full md:w-2/5 flex flex-col">
-        <h3 class="text-4xl md:text-5xl font-medium tracking-tight mb-6">Online Compiler</h3>
-        <p class="text-lg text-neutral-400 leading-relaxed mb-10 font-light">Support three programming languages C++, JS, Python. Backend on FastAPI. Python + Redis/Celery</p>
-        <div class="flex gap-6 text-sm font-medium">
-          <a href="https://onlinecompiler-895n.onrender.com/" target="_blank" class="text-white border-b border-white pb-1 hover:text-neutral-300 transition-colors">Live Site ↗</a>
+      <!-- Текстовая карточка (Наезжает сверху) -->
+      <div class="gsap-parallax-card mt-6 md:mt-0 md:absolute bottom-[-10%] right-0 w-full md:w-[480px] flex flex-col bg-neutral-900/70 backdrop-blur-2xl border border-white/10 p-8 md:p-10 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 group-hover:bg-neutral-900/90 transition-colors duration-500">
+        <div class="mb-4 flex gap-3 text-xs font-bold text-neutral-500 uppercase tracking-widest">
+          <span>Featured</span><span>—</span><span>Web App</span>
+        </div>
+        <h3 class="text-3xl md:text-4xl font-black tracking-tight mb-4 uppercase">Online Compiler</h3>
+        <p class="text-base text-neutral-400 leading-relaxed mb-8 font-semibold">
+          Support three programming languages C++, JS, Python. Backend on FastAPI. Python + Redis/Celery integration for fast processing.
+        </p>
+        <div class="flex gap-6 text-sm font-bold uppercase tracking-widest">
+          <a href="https://onlinecompiler-895n.onrender.com/" target="_blank" class="text-white border-b-2 border-white pb-1 hover:text-neutral-400 hover:border-neutral-400 transition-colors">Live Site ↗</a>
         </div>
       </div>
     </article>
 
-    <div class="gsap-fade flex justify-center mt-12">
-      <a href="projects.html" class="px-8 py-4 border border-white/20 rounded-full text-white hover:bg-white hover:text-black transition-all duration-300 text-lg">
-        View All Projects ↗
+    <div class="gsap-fade flex justify-center mt-32">
+      <a href="projects.html" class="px-10 py-5 bg-white text-black rounded-full font-black uppercase tracking-widest text-sm hover:scale-105 transition-transform duration-300">
+        View All Projects
       </a>
     </div>
   </section>
 
   <!-- Навыки -->
-  <section id="skills" class="px-6 md:px-12 mx-auto max-w-7xl py-32 border-t border-white/5">
+  <section id="skills" class="px-6 md:px-12 mx-auto max-w-7xl py-32 border-t border-white/10">
     <div class="grid md:grid-cols-12 gap-12">
-      <div class="md:col-span-4"><h2 class="gsap-fade text-5xl md:text-7xl font-medium tracking-tighter mb-6">Skills</h2></div>
-      <div class="md:col-span-8 grid sm:grid-cols-2 gap-12 md:gap-20 md:pt-4">
-        <div class="gsap-fade flex flex-col gap-6 border-t border-white/10 pt-6">
-          <h3 class="font-mono text-sm text-neutral-500 uppercase tracking-widest">Frontend</h3>
-          <ul class="text-2xl font-light space-y-4 text-neutral-300">
+      <div class="md:col-span-5"><h2 class="gsap-fade text-6xl md:text-8xl font-black tracking-tighter uppercase mb-6">Skills</h2></div>
+      <div class="md:col-span-7 grid sm:grid-cols-2 gap-12 md:gap-16 md:pt-6">
+        <div class="gsap-fade flex flex-col gap-6 border-t-2 border-white/20 pt-6">
+          <h3 class="font-bold text-sm text-neutral-500 uppercase tracking-widest">Frontend</h3>
+          <ul class="text-3xl font-bold space-y-4 text-white">
             <li>JavaScript (ES6+)</li><li>React & Next.js</li><li>Tailwind CSS</li>
           </ul>
         </div>
-        <div class="gsap-fade flex flex-col gap-6 border-t border-white/10 pt-6">
-          <h3 class="font-mono text-sm text-neutral-500 uppercase tracking-widest">Backend</h3>
-          <ul class="text-2xl font-light space-y-4 text-neutral-300">
+        <div class="gsap-fade flex flex-col gap-6 border-t-2 border-white/20 pt-6">
+          <h3 class="font-bold text-sm text-neutral-500 uppercase tracking-widest">Backend</h3>
+          <ul class="text-3xl font-bold space-y-4 text-white">
             <li>Node.js & Express</li><li>Python & FastAPI</li><li>MongoDB & Redis</li>
           </ul>
         </div>
@@ -130,11 +206,11 @@
   </section>
 
   <!-- Контакты -->
-  <section id="contact" class="px-6 md:px-12 mx-auto max-w-7xl py-40 border-t border-white/5 text-center">
-    <h2 class="gsap-fade text-[10vw] md:text-[8vw] font-medium leading-[0.9] tracking-tighter text-white mb-12">Let's Talk.</h2>
+  <section id="contact" class="px-6 md:px-12 mx-auto max-w-7xl py-40 border-t border-white/10 text-center">
+    <h2 class="gsap-fade text-[12vw] md:text-[9vw] font-black leading-[0.9] tracking-tighter text-white mb-12 uppercase">Let's Talk.</h2>
     <div class="gsap-fade flex flex-col sm:flex-row gap-6 justify-center max-w-2xl mx-auto">
-      <a href="mailto:zelenko009@gmail.com" class="w-full sm:w-auto px-10 py-5 bg-white text-black rounded-full text-lg font-medium hover:scale-105 transition-transform flex justify-center gap-3">Email Me ↗</a>
-      <a href="https://t.me/vzbbsi" target="_blank" class="w-full sm:w-auto px-10 py-5 bg-transparent border border-white/20 text-white rounded-full text-lg font-medium hover:bg-white/5 transition-all flex justify-center gap-3">Telegram ↗</a>
+      <a href="mailto:zelenko009@gmail.com" class="w-full sm:w-auto px-12 py-5 bg-white text-black rounded-full text-sm uppercase tracking-widest font-black hover:scale-105 transition-transform flex justify-center gap-3">Email Me</a>
+      <a href="https://t.me/vzbbsi" target="_blank" class="w-full sm:w-auto px-12 py-5 bg-transparent border-2 border-white/20 text-white rounded-full text-sm uppercase tracking-widest font-black hover:bg-white hover:text-black transition-all flex justify-center gap-3">Telegram</a>
     </div>
   </section>
 </main>
@@ -148,8 +224,20 @@
   const tl = gsap.timeline();
   tl.to(".gsap-hero-text", { y: "0%", duration: 1.2, stagger: 0.15, ease: "power4.out", delay: 0.2 });
   tl.fromTo(".gsap-hero-fade", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power3.out" }, "-=0.8");
+
   gsap.utils.toArray('.gsap-fade').forEach(el => {
-    gsap.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 85%" } });
+    gsap.fromTo(el, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 85%" } });
+  });
+
+  // Параллакс эффект для карточки поверх проекта
+  gsap.utils.toArray('.gsap-project').forEach(project => {
+    const card = project.querySelector('.gsap-parallax-card');
+    if(card) {
+      gsap.fromTo(card,
+              { y: 50 },
+              { y: -30, ease: "none", scrollTrigger: { trigger: project, start: "top bottom", end: "bottom top", scrub: 1 } }
+      );
+    }
   });
 
   // Мобильное меню
@@ -163,26 +251,20 @@
   hamburger.addEventListener('click', toggleNav);
   document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => { if(isNavOpen) toggleNav(); }));
 
-  // Умная предзагрузка Iframe через Intersection Observer
+  // Предзагрузка Iframe
   document.addEventListener("DOMContentLoaded", () => {
     const iframes = document.querySelectorAll('.card-preview__iframe');
-
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const iframe = entry.target;
           const src = iframe.getAttribute('data-src');
-
           if (src) {
             iframe.src = src;
             iframe.removeAttribute('data-src');
-
             iframe.onload = () => {
-              // Делаем iframe видимым постоянно
               iframe.classList.remove('opacity-0');
               iframe.classList.add('opacity-100');
-
-              // Прячем лоадер
               const container = iframe.closest('.project-preview-container');
               const loader = container.querySelector('.card-preview__loader');
               if (loader) {
@@ -195,10 +277,7 @@
           observer.unobserve(iframe);
         }
       });
-    }, {
-      rootMargin: "300px" // Загружаем заранее при скролле
-    });
-
+    }, { rootMargin: "300px" });
     iframes.forEach(iframe => observer.observe(iframe));
   });
 </script>
