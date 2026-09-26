@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,50 +8,13 @@
   <!-- Базовое SEO -->
   <title>Vadym Zelenko (Вадим Зеленько) | Full-stack Developer</title>
   <meta name="description" content="Portfolio of Vadym Zelenko (Вадим Зеленько / Вадик Зеленько) — Full-stack developer, Python & React engineer, and hardware maker. Custom web applications and cyberdecks." />
-  <meta name="keywords" content="Vadym Zelenko, Вадим Зеленко, Вадим Зеленько, Вадик Зеленько, Full-stack developer, Python developer, React, Next.js, веб-разработчик, програміст, Gdańsk, Poland, разработчик Гданьск" />
-  <meta name="author" content="Vadym Zelenko" />
 
-  <!-- Open Graph / Умные превью для Telegram, LinkedIn, Facebook -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Vadym Zelenko | Full-stack Developer" />
   <meta property="og:description" content="Full-stack developer building fast, clean web experiences from backend APIs to frontend UIs." />
   <meta property="og:url" content="https://vzbb.site/" />
   <meta property="og:site_name" content="Vadym Zelenko Portfolio" />
-  <!-- Сюда можешь вставить ссылку на скриншот твоего сайта для красивого превью -->
-  <!-- <meta property="og:image" content="https://vzbb.site/og-image.jpg" /> -->
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Vadym Zelenko | Full-stack Developer" />
-  <meta name="twitter:description" content="Full-stack developer building fast, clean web experiences from backend APIs to frontend UIs." />
-
-  <!-- Микроразметка Schema.org (JSON-LD) - Самая важная часть для поисковиков -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Vadym Zelenko",
-      "alternateName": [
-        "Вадим Зеленко",
-        "Вадим Зеленько",
-        "Вадик Зеленько",
-        "Vadym Zelenko",
-        "Vadim Zelenko"
-      ],
-      "jobTitle": "Full-stack Developer",
-      "url": "https://vzbb.site",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Gdańsk",
-        "addressCountry": "Poland"
-      },
-      "sameAs": [
-        "https://github.com/01cheese",
-        "https://t.me/vzbbsi"
-      ],
-      "knowsAbout": ["Web Development", "Python", "React", "Next.js", "Full-stack", "Cyberdecks", "Hardware"]
-    }
-  </script>
 
   <!-- Шрифты и Tailwind -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.3/dist/fonts/geist-sans/style.css">
@@ -88,28 +50,37 @@
       background-image:
               linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
               linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      /* Удали mask-image для projects.html, если хочешь чтобы сетка была на весь экран,
-         или оставь затухание для index.html */
       mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
       -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
     }
 
-    .clip-text { overflow: hidden; display: inline-block; }
-    .clip-text > span { display: inline-block; transform: translateY(100%); }
-
-    .loader-bar { width: 60px; height: 2px; background: rgba(255,255,255,0.1); position: relative; overflow: hidden; }
-    .loader-bar::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: white; animation: loading 1.5s infinite ease-in-out; }
-    @keyframes loading { 100% { left: 100%; } }
+    /* Эффект свечения для карточек при наведении */
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(to bottom right, rgba(255,255,255,0.1), transparent);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.3;
+      transition: opacity 0.5s ease;
+    }
+    .project-card:hover::before {
+      opacity: 1;
+      background: linear-gradient(to bottom right, rgba(255,255,255,0.4), rgba(255,255,255,0.05));
+    }
   </style>
 </head>
 
-
-<body class="bg-neutral-950 text-neutral-50 antialiased overflow-x-hidden font-sans">
+<body class="bg-neutral-950 text-neutral-50 antialiased overflow-x-hidden font-sans selection:bg-white selection:text-black">
 <div class="grid-pattern"></div>
 <div class="noise-bg"></div>
 
 <!-- Навигация -->
-<header class="fixed top-0 z-40 w-full bg-neutral-950/80 backdrop-blur-xl border-b border-white/10">
+<header class="fixed top-0 z-40 w-full bg-neutral-950/80 backdrop-blur-xl border-b border-white/5">
   <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-12">
     <a href="index.html" class="text-2xl font-black tracking-tighter">VZ.</a>
     <nav class="hidden md:block">
@@ -130,135 +101,117 @@
 </div>
 
 <main class="relative z-20 pt-40 pb-32">
-  <section class="px-6 md:px-12 mx-auto max-w-7xl mb-32">
+  <section class="px-6 md:px-12 mx-auto max-w-7xl mb-24">
     <h1 class="gsap-fade text-6xl md:text-9xl font-black tracking-tighter text-white mb-6 uppercase leading-none">All Projects</h1>
     <p class="gsap-fade text-xl md:text-2xl text-neutral-400 font-bold max-w-2xl">A complete archive of web applications, tools, and experiments I've built.</p>
   </section>
 
-  <!-- Сетка Проектов (Новый аккуратный Layout) -->
-  <section class="px-6 md:px-12 mx-auto max-w-7xl flex flex-col gap-32 md:gap-48">
+  <!-- Сетка Проектов (Новый типографический Layout) -->
+  <section class="px-6 md:px-12 mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6">
 
     <!-- Проект 1 -->
-    <article class="gsap-project relative flex flex-col md:block items-center group w-full" data-url="https://projects10hl.vercel.app/web_projects/EuroLogistics.html">
-      <div class="w-full md:w-[80%] aspect-[4/3] md:aspect-[21/9] relative rounded-[2rem] overflow-hidden bg-neutral-900 border border-white/10 project-preview-container hover:border-white/30 transition-colors duration-500 shadow-2xl z-10">
-        <div class="card-preview__loader absolute inset-0 flex flex-col gap-4 items-center justify-center z-20">
-          <div class="loader-bar"></div>
-          <span class="text-xs text-neutral-500 font-bold tracking-widest uppercase">Loading site</span>
+    <article class="gsap-card project-card group relative flex flex-col justify-between bg-neutral-900/40 hover:bg-neutral-900/80 backdrop-blur-sm rounded-3xl p-8 md:p-10 transition-all duration-500 overflow-hidden min-h-[380px]">
+      <div class="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div class="relative z-10">
+        <div class="flex justify-between items-center mb-8">
+          <span class="text-xs font-bold text-neutral-500 uppercase tracking-widest">01</span>
+          <span class="text-[10px] font-bold px-3 py-1 bg-white/5 border border-white/10 rounded-full text-neutral-400 uppercase tracking-widest">Web App</span>
         </div>
-        <div class="absolute inset-[-5%] w-[110%] h-[110%]">
-          <iframe class="card-preview__iframe absolute inset-0 h-full w-full opacity-0 transition-opacity duration-700 pointer-events-none group-hover:pointer-events-auto" data-src="https://projects10hl.vercel.app/web_projects/EuroLogistics.html" sandbox="allow-scripts allow-same-origin"></iframe>
-        </div>
+        <h3 class="text-3xl md:text-4xl font-black tracking-tight mb-4 uppercase text-white group-hover:text-white transition-colors duration-300">NoteAI</h3>
+        <p class="text-sm text-neutral-400 leading-relaxed font-medium max-w-md">Web application for task and note management with an integrated AI assistant.</p>
       </div>
-
-      <div class="gsap-parallax-card mt-6 md:mt-0 md:absolute bottom-[-15%] right-[5%] w-full md:w-[450px] bg-neutral-900/70 backdrop-blur-2xl border border-white/10 p-8 md:p-10 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 group-hover:bg-neutral-900/90 transition-colors duration-500">
-        <div class="mb-4 flex gap-3 text-xs font-bold text-neutral-500 uppercase tracking-widest"><span>01</span><span>—</span><span>Business Dev</span></div>
-        <h3 class="text-3xl font-black tracking-tight mb-4 uppercase">EuroLogistics</h3>
-        <p class="text-sm text-neutral-400 leading-relaxed mb-8 font-semibold">A modern, responsive landing page designed for a European logistics and freight forwarding company.</p>
-        <div class="flex gap-6 text-xs font-bold uppercase tracking-widest">
-          <a href="https://pacman.vzbb.site" target="_blank" class="text-white border-b-2 border-white pb-1 hover:text-neutral-400 transition-colors">Live Site ↗</a>
-          <a href="https://github.com/01cheese/projects10hl/blob/main/web_projects/EuroLogistics.html" target="_blank" class="text-neutral-500 hover:text-white transition-colors">Source ↗</a>
-        </div>
+      <div class="relative z-10 flex gap-6 text-xs font-bold uppercase tracking-widest mt-12">
+        <a href="https://note-ai-henna.vercel.app" target="_blank" class="text-white border-b border-white/30 hover:border-white pb-1 transition-all flex items-center gap-2 group/link">
+          Live Site <svg class="w-3 h-3 transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <a href="https://github.com/vadymzelenko/noteAI" target="_blank" class="text-neutral-500 hover:text-white transition-colors flex items-center gap-2">Source</a>
       </div>
     </article>
 
-    <!-- Проект 2 (Чередуем расположение текста: Слева) -->
-    <article class="gsap-project relative flex flex-col md:block items-center group w-full" data-url="https://projects10hl.vercel.app/web_projects/LUMIERE.html">
-      <div class="w-full md:w-[80%] md:ml-auto aspect-[4/3] md:aspect-[21/9] relative rounded-[2rem] overflow-hidden bg-neutral-900 border border-white/10 project-preview-container hover:border-white/30 transition-colors duration-500 shadow-2xl z-10">
-        <div class="card-preview__loader absolute inset-0 flex flex-col gap-4 items-center justify-center z-20">
-          <div class="loader-bar"></div>
-          <span class="text-xs text-neutral-500 font-bold tracking-widest uppercase">Loading site</span>
+    <!-- Проект 2 -->
+    <article class="gsap-card project-card group relative flex flex-col justify-between bg-neutral-900/40 hover:bg-neutral-900/80 backdrop-blur-sm rounded-3xl p-8 md:p-10 transition-all duration-500 overflow-hidden min-h-[380px]">
+      <div class="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div class="relative z-10">
+        <div class="flex justify-between items-center mb-8">
+          <span class="text-xs font-bold text-neutral-500 uppercase tracking-widest">02</span>
+          <span class="text-[10px] font-bold px-3 py-1 bg-white/5 border border-white/10 rounded-full text-neutral-400 uppercase tracking-widest">NPM Package</span>
         </div>
-        <div class="absolute inset-[-5%] w-[110%] h-[110%]">
-          <iframe class="card-preview__iframe absolute inset-0 h-full w-full opacity-0 transition-opacity duration-700 pointer-events-none group-hover:pointer-events-auto" data-src="https://projects10hl.vercel.app/web_projects/LUMIERE.html" sandbox="allow-scripts allow-same-origin"></iframe>
-        </div>
+        <h3 class="text-3xl md:text-4xl font-black tracking-tight mb-4 uppercase text-white group-hover:text-white transition-colors duration-300">Booking/CRM engine</h3>
+        <p class="text-sm text-neutral-400 leading-relaxed font-medium max-w-md">A lightweight, headless booking engine and CRM powered by Google Sheets and Google Apps Script.</p>
       </div>
+      <div class="relative z-10 flex gap-6 text-xs font-bold uppercase tracking-widest mt-12">
+        <a href="https://www.npmjs.com/package/@vzbb-db-system/core" target="_blank" class="text-white border-b border-white/30 hover:border-white pb-1 transition-all flex items-center gap-2 group/link">
+          Npmjs.com <svg class="w-3 h-3 transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
 
-      <div class="gsap-parallax-card mt-6 md:mt-0 md:absolute bottom-[-15%] left-[5%] w-full md:w-[450px] bg-neutral-900/70 backdrop-blur-2xl border border-white/10 p-8 md:p-10 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 group-hover:bg-neutral-900/90 transition-colors duration-500">
-        <div class="mb-4 flex gap-3 text-xs font-bold text-neutral-500 uppercase tracking-widest"><span>02</span><span>—</span><span>Business Dev</span></div>
-        <h3 class="text-3xl font-black tracking-tight mb-4 uppercase">Premium Barbershop</h3>
-        <p class="text-sm text-neutral-400 leading-relaxed mb-8 font-semibold">A sleek and elegant landing page designed for a high-end barbershop based in Kraków. The website is specifically crafted to convey a sophisticated atmosphere.</p>
-        <div class="flex gap-6 text-xs font-bold uppercase tracking-widest">
-          <a href="https://projects10hl.vercel.app/web_projects/LUMIERE.html" target="_blank" class="text-white border-b-2 border-white pb-1 hover:text-neutral-400 transition-colors">Live Site ↗</a>
-          <a href="https://github.com/01cheese/projects10hl/blob/main/web_projects/LUMIERE.html" target="_blank" class="text-neutral-500 hover:text-white transition-colors">Source ↗</a>
-        </div>
+        <a href="https://www.npmjs.com/package/@vzbb-db-system/core" target="_blank" class="text-white border-b border-white/30 hover:border-white pb-1 transition-all flex items-center gap-2 group/link">
+          Live Site <svg class="w-3 h-3 transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <a href="https://github.com/vadymzelenko/sheets-booking-engine" target="_blank" class="text-neutral-500 hover:text-white transition-colors flex items-center gap-2">Source</a>
       </div>
     </article>
 
     <!-- Проект 3 -->
-    <article class="gsap-project relative flex flex-col md:block items-center group w-full" data-url="https://projects10hl.vercel.app/web_projects/Revelox.html">
-      <div class="w-full md:w-[80%] aspect-[4/3] md:aspect-[21/9] relative rounded-[2rem] overflow-hidden bg-neutral-900 border border-white/10 project-preview-container hover:border-white/30 transition-colors duration-500 shadow-2xl z-10">
-        <div class="card-preview__loader absolute inset-0 flex flex-col gap-4 items-center justify-center z-20">
-          <div class="loader-bar"></div>
-          <span class="text-xs text-neutral-500 font-bold tracking-widest uppercase">Loading site</span>
+    <article class="gsap-card project-card group relative flex flex-col justify-between bg-neutral-900/40 hover:bg-neutral-900/80 backdrop-blur-sm rounded-3xl p-8 md:p-10 transition-all duration-500 overflow-hidden min-h-[380px]">
+      <div class="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div class="relative z-10">
+        <div class="flex justify-between items-center mb-8">
+          <span class="text-xs font-bold text-neutral-500 uppercase tracking-widest">03</span>
+          <span class="text-[10px] font-bold px-3 py-1 bg-white/5 border border-white/10 rounded-full text-neutral-400 uppercase tracking-widest">Backend</span>
         </div>
-        <div class="absolute inset-[-5%] w-[110%] h-[110%]">
-          <iframe class="card-preview__iframe absolute inset-0 h-full w-full opacity-0 transition-opacity duration-700 pointer-events-none group-hover:pointer-events-auto" data-src="https://projects10hl.vercel.app/web_projects/Revelox.html" sandbox="allow-scripts allow-same-origin"></iframe>
-        </div>
+        <h3 class="text-3xl md:text-4xl font-black tracking-tight mb-4 uppercase text-white group-hover:text-white transition-colors duration-300">Wikipedia visualization</h3>
+        <p class="text-sm text-neutral-400 leading-relaxed font-medium max-w-md">Visualization of connections and mass of Wikipedia links in simplified English for 400k pages.</p>
       </div>
-
-      <div class="gsap-parallax-card mt-6 md:mt-0 md:absolute bottom-[-15%] right-[5%] w-full md:w-[450px] bg-neutral-900/70 backdrop-blur-2xl border border-white/10 p-8 md:p-10 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 group-hover:bg-neutral-900/90 transition-colors duration-500">
-        <div class="mb-4 flex gap-3 text-xs font-bold text-neutral-500 uppercase tracking-widest"><span>03</span><span>—</span><span>Business Dev</span></div>
-        <h3 class="text-3xl font-black tracking-tight mb-4 uppercase">Revelox SaaS</h3>
-        <p class="text-sm text-neutral-400 leading-relaxed mb-8 font-semibold">A sleek, conversion-optimized landing page for a modern SaaS platform. Featuring clean typography, subtle animations, and a clear presentation.</p>
-        <div class="flex gap-6 text-xs font-bold uppercase tracking-widest">
-          <a href="https://projects10hl.vercel.app/web_projects/Revelox.html" target="_blank" class="text-white border-b-2 border-white pb-1 hover:text-neutral-400 transition-colors">Live Site ↗</a>
-          <a href="https://github.com/01cheese/projects10hl/blob/main/web_projects/Revelox.html" target="_blank" class="text-neutral-500 hover:text-white transition-colors">Source ↗</a>
-        </div>
+      <div class="relative z-10 flex gap-6 text-xs font-bold uppercase tracking-widest mt-12">
+        <a href="https://visualization-simple-wikipedia.vercel.app/" target="_blank" class="text-white border-b border-white/30 hover:border-white pb-1 transition-all flex items-center gap-2 group/link">
+          Live Site <svg class="w-3 h-3 transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <a href="https://github.com/vadymzelenko/visualization-simple-wikipedia" target="_blank" class="text-neutral-500 hover:text-white transition-colors flex items-center gap-2">Source</a>
       </div>
     </article>
 
-    <!-- Проект 4 (Слева) -->
-    <article class="gsap-project relative flex flex-col md:block items-center group w-full" data-url="https://projects10hl.vercel.app/web_projects/kawa_and_klimat.html">
-      <div class="w-full md:w-[80%] md:ml-auto aspect-[4/3] md:aspect-[21/9] relative rounded-[2rem] overflow-hidden bg-neutral-900 border border-white/10 project-preview-container hover:border-white/30 transition-colors duration-500 shadow-2xl z-10">
-        <div class="card-preview__loader absolute inset-0 flex flex-col gap-4 items-center justify-center z-20">
-          <div class="loader-bar"></div>
-          <span class="text-xs text-neutral-500 font-bold tracking-widest uppercase">Loading site</span>
+    <!-- Проект 4 -->
+    <article class="gsap-card project-card group relative flex flex-col justify-between bg-neutral-900/40 hover:bg-neutral-900/80 backdrop-blur-sm rounded-3xl p-8 md:p-10 transition-all duration-500 overflow-hidden min-h-[380px]">
+      <div class="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div class="relative z-10">
+        <div class="flex justify-between items-center mb-8">
+          <span class="text-xs font-bold text-neutral-500 uppercase tracking-widest">04</span>
+          <span class="text-[10px] font-bold px-3 py-1 bg-white/5 border border-white/10 rounded-full text-neutral-400 uppercase tracking-widest">Business Dev</span>
         </div>
-        <div class="absolute inset-[-5%] w-[110%] h-[110%]">
-          <iframe class="card-preview__iframe absolute inset-0 h-full w-full opacity-0 transition-opacity duration-700 pointer-events-none group-hover:pointer-events-auto" data-src="https://projects10hl.vercel.app/web_projects/kawa_and_klimat.html" sandbox="allow-scripts allow-same-origin"></iframe>
-        </div>
+        <h3 class="text-3xl md:text-4xl font-black tracking-tight mb-4 uppercase text-white group-hover:text-white transition-colors duration-300">Kawa & Klimat</h3>
+        <p class="text-sm text-neutral-400 leading-relaxed font-medium max-w-md">A warm, inviting landing page designed for a local café in Kraków. It features a beautifully categorized menu, a cozy visual gallery, and seamless table booking.</p>
       </div>
-
-      <div class="gsap-parallax-card mt-6 md:mt-0 md:absolute bottom-[-15%] left-[5%] w-full md:w-[450px] bg-neutral-900/70 backdrop-blur-2xl border border-white/10 p-8 md:p-10 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 group-hover:bg-neutral-900/90 transition-colors duration-500">
-        <div class="mb-4 flex gap-3 text-xs font-bold text-neutral-500 uppercase tracking-widest">
-          <span>04</span><span>—</span><span>Business Dev</span>
-        </div>
-        <h3 class="text-3xl font-black tracking-tight mb-4 uppercase">Kawa & Klimat</h3>
-        <p class="text-sm text-neutral-400 leading-relaxed mb-8 font-semibold">A warm, inviting landing page designed for a local café in Kraków. It features a beautifully categorized menu, a cozy visual gallery, and seamless table booking.</p>
-        <div class="flex gap-6 text-xs font-bold uppercase tracking-widest">
-          <a href="https://projects10hl.vercel.app/web_projects/kawa_and_klimat.html" target="_blank" class="text-white border-b-2 border-white pb-1 hover:text-neutral-400 transition-colors">Live Site ↗</a>
-          <a href="https://github.com/01cheese/projects10hl/blob/main/web_projects/kawa_and_klimat.html" target="_blank" class="text-neutral-500 hover:text-white transition-colors">Source ↗</a>
-        </div>
+      <div class="relative z-10 flex gap-6 text-xs font-bold uppercase tracking-widest mt-12">
+        <a href="https://projects10hl.vercel.app/web_projects/kawa_and_klimat.html" target="_blank" class="text-white border-b border-white/30 hover:border-white pb-1 transition-all flex items-center gap-2 group/link">
+          Live Site <svg class="w-3 h-3 transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <a href="https://github.com/01cheese/projects10hl/blob/main/web_projects/kawa_and_klimat.html" target="_blank" class="text-neutral-500 hover:text-white transition-colors flex items-center gap-2">Source</a>
       </div>
     </article>
 
     <!-- Проект 5 -->
-    <article class="gsap-project relative flex flex-col md:block items-center group w-full" data-url="https://vet-vernyje-druzia.vercel.app/">
-      <div class="w-full md:w-[80%] aspect-[4/3] md:aspect-[21/9] relative rounded-[2rem] overflow-hidden bg-neutral-900 border border-white/10 project-preview-container hover:border-white/30 transition-colors duration-500 shadow-2xl z-10">
-        <div class="card-preview__loader absolute inset-0 flex flex-col gap-4 items-center justify-center z-20">
-          <div class="loader-bar"></div>
-          <span class="text-xs text-neutral-500 font-bold tracking-widest uppercase">Loading site</span>
+    <article class="gsap-card project-card md:col-span-2 group relative flex flex-col md:flex-row justify-between bg-neutral-900/40 hover:bg-neutral-900/80 backdrop-blur-sm rounded-3xl p-8 md:p-10 transition-all duration-500 overflow-hidden min-h-[300px]">
+      <div class="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div class="relative z-10 flex flex-col w-full md:w-2/3">
+        <div class="flex justify-between items-center mb-8 md:max-w-fit md:gap-8">
+          <span class="text-xs font-bold text-neutral-500 uppercase tracking-widest">05</span>
+          <span class="text-[10px] font-bold px-3 py-1 bg-white/5 border border-white/10 rounded-full text-neutral-400 uppercase tracking-widest">Business Dev</span>
         </div>
-        <div class="absolute inset-[-5%] w-[110%] h-[110%]">
-          <iframe class="card-preview__iframe absolute inset-0 h-full w-full opacity-0 transition-opacity duration-700 pointer-events-none group-hover:pointer-events-auto" data-src="https://vet-vernyje-druzia.vercel.app/" sandbox="allow-scripts allow-same-origin"></iframe>
-        </div>
+        <h3 class="text-3xl md:text-5xl font-black tracking-tight mb-4 uppercase text-white group-hover:text-white transition-colors duration-300">Templates Store</h3>
+        <p class="text-sm text-neutral-400 leading-relaxed font-medium max-w-xl">A modern and responsive landing page for a veterinary center. The main goal of the project is to present the full range of the clinic's services in a trustworthy, accessible format.</p>
       </div>
-
-      <div class="gsap-parallax-card mt-6 md:mt-0 md:absolute bottom-[-15%] right-[5%] w-full md:w-[450px] bg-neutral-900/70 backdrop-blur-2xl border border-white/10 p-8 md:p-10 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 group-hover:bg-neutral-900/90 transition-colors duration-500">
-        <div class="mb-4 flex gap-3 text-xs font-bold text-neutral-500 uppercase tracking-widest"><span>05</span><span>—</span><span>Business Dev</span></div>
-        <h3 class="text-3xl font-black tracking-tight mb-4 uppercase">Veterinary center</h3>
-        <p class="text-sm text-neutral-400 leading-relaxed mb-8 font-semibold">A modern and responsive landing page for a veterinary center. The main goal of the project is to present the full range of the clinic's services.</p>
-        <div class="flex gap-6 text-xs font-bold uppercase tracking-widest">
-          <a href="https://vet-vernyje-druzia.vercel.app/" target="_blank" class="text-white border-b-2 border-white pb-1 hover:text-neutral-400 transition-colors">Live Site ↗</a>
-          <a href="https://github.com/01cheese/vet-vernyje-druzia" target="_blank" class="text-neutral-500 hover:text-white transition-colors">Source ↗</a>
-        </div>
+      <div class="relative z-10 flex md:flex-col justify-start md:justify-end gap-6 text-xs font-bold uppercase tracking-widest mt-12 md:mt-0">
+        <a href="https://templates-store-alpha.vercel.app/" target="_blank" class="text-white border-b border-white/30 hover:border-white pb-1 transition-all flex items-center gap-2 group/link w-fit">
+          Live Site <svg class="w-3 h-3 transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <a href="https://github.com/vadymzelenko/templates_store" target="_blank" class="text-neutral-500 hover:text-white transition-colors flex items-center gap-2 w-fit">Source</a>
       </div>
     </article>
 
   </section>
 </main>
 
-<footer class="border-t border-white/10 py-10 relative z-20 bg-neutral-950/80 backdrop-blur-md">
+<footer class="border-t border-white/5 py-10 relative z-20 bg-neutral-950/80 backdrop-blur-md">
   <div class="mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-12 max-w-7xl text-xs font-bold text-neutral-500 uppercase tracking-widest gap-4">
     <p>VADYM ZELENKO © 2026</p>
     <div class="flex gap-6"><a href="https://github.com/01cheese" target="_blank" class="hover:text-white transition-colors">GITHUB</a></div>
@@ -270,18 +223,29 @@
 <script>
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.utils.toArray('.gsap-fade').forEach(el => gsap.fromTo(el, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%" } }));
-
-  // Параллакс для карточек (наезд текста на Iframe при скролле)
-  gsap.utils.toArray('.gsap-project').forEach(project => {
-    const card = project.querySelector('.gsap-parallax-card');
-    if(card) {
-      gsap.fromTo(card,
-              { y: 60 },
-              { y: -40, ease: "none", scrollTrigger: { trigger: project, start: "top bottom", end: "bottom top", scrub: 1 } }
-      );
-    }
+  // Анимация заголовков
+  gsap.utils.toArray('.gsap-fade').forEach(el => {
+    gsap.fromTo(el,
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%" } }
+    )
   });
+
+  // Stagger анимация для карточек проектов
+  gsap.fromTo('.gsap-card',
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".gsap-card",
+              start: "top 85%"
+            }
+          }
+  );
 
   // Меню
   const hamburger = document.getElementById('hamburger'), mobileNav = document.getElementById('mobileNav');
@@ -294,36 +258,6 @@
     document.body.style.overflow = isNavOpen ? 'hidden' : '';
   });
   document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => { if(isNavOpen) hamburger.click(); }));
-
-  // Предзагрузка Iframe
-  document.addEventListener("DOMContentLoaded", () => {
-    const iframes = document.querySelectorAll('.card-preview__iframe');
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const iframe = entry.target;
-          const src = iframe.getAttribute('data-src');
-          if (src) {
-            iframe.src = src;
-            iframe.removeAttribute('data-src');
-            iframe.onload = () => {
-              iframe.classList.remove('opacity-0');
-              iframe.classList.add('opacity-100');
-              const container = iframe.closest('.project-preview-container');
-              const loader = container.querySelector('.card-preview__loader');
-              if (loader) {
-                loader.style.transition = 'opacity 0.3s ease';
-                loader.style.opacity = '0';
-                setTimeout(() => loader.style.display = 'none', 300);
-              }
-            };
-          }
-          observer.unobserve(iframe);
-        }
-      });
-    }, { rootMargin: "300px" });
-    iframes.forEach(iframe => observer.observe(iframe));
-  });
 </script>
 </body>
 </html>
